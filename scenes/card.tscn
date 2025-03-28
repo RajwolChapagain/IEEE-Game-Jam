@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://c4crmhkfhroy5"]
+[gd_scene load_steps=40 format=3 uid="uid://c4crmhkfhroy5"]
 
 [ext_resource type="Script" uid="uid://c76khd0d8vp8" path="res://scripts/card.gd" id="1_6u4wf"]
 [ext_resource type="Texture2D" uid="uid://dm6vtv6juewgp" path="res://assets/sprites/Card Sprite Sheet.png" id="2_6u4wf"]
@@ -256,6 +256,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4f1a"]
+atlas = ExtResource("2_6u4wf")
+region = Rect2(288, 0, 72, 96)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6u4wf"]
 size = Vector2(72, 96)
 
@@ -274,6 +278,10 @@ animation = &"Ranks"
 
 [node name="Suit" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_khodh")
+
+[node name="FlipSprite" type="Sprite2D" parent="."]
+visible = false
+texture = SubResource("AtlasTexture_s4f1a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_6u4wf")

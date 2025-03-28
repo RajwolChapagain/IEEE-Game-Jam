@@ -24,3 +24,7 @@ func update_card():
 		Rank_Sprite.frame = rank + 12
 	else:
 		Rank_Sprite.frame = rank
+	if !face_up:
+		$FlipSprite.visible = true
+	else:
+		$FlipSprite.visible = false
