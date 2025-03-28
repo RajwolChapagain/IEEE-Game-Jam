@@ -17,7 +17,7 @@ func deal(deal_size: int):
 		dealt_card[i].global_position = dealt_positions[i].global_position
 		dealt_card[i].update_card()
 
-func _on_card_clicked(card):
+func _on_card_clicked(card: Card):
 	print(card.get_pretty_string())
 	card.global_position.y += 50
 	card.update_card()
