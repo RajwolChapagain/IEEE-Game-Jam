@@ -2,7 +2,7 @@ extends Area2D
 
 enum RANK {TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE}
 enum SUIT {SPADE, CLUB, DIAMOND, HEART}
-enum TYPE {NORMAL, FIRE, WATER, NATURE}
+enum TYPE {NORMAL, FIRE, WATER, TREE}
 
 var rank: int = randi_range(0, RANK.values().size()-1)
 var suit: int = randi_range(0, SUIT.values().size()-1)
