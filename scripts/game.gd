@@ -6,15 +6,16 @@ extends Node2D
 @export var dealt_positions: Array[Marker2D]
 
 var dealt_card: Array[Card] = []
-var player_turn : bool = false
+var player_turn: bool = false
+var deal_size: int = 10
 
 func _ready():
-	deal(10)
+	deal()
 	for card in dealt_card:
 		card.card_clicked.connect(_on_card_clicked)
 	enemy_pick()
 	
-func deal(deal_size: int):
+func deal():
 	for i in range(0, deal_size):
 		dealt_card.append(deck.deck[i])
 		dealt_card[i].face_up = true
@@ -27,10 +28,32 @@ func enemy_pick():
 		enemy.pick(dealt_card[index])
 		dealt_card.pop_at(index)
 		player_turn = not player_turn
-	
+	else:
+		start_battle()
+
+func start_battle():
+	player.shuffle_hand()
+	player.order_hand()
+	enemy.shuffle_hand()
+	enemy.order_hand()
+	for i in range(0, int(deal_size/2)):
+		player.hand[i].face_up = true
+		player.hand[i].update_card()
+		enemy.hand[i].face_up = true
+		enemy.hand[i].update_card()
+		var cmp = Calculator.compare(player.hand[i], enemy.hand[i])
+		if cmp > 0:
+			enemy.hp-=1
+			print(player.hand[i].get_pretty_string(), "  wins")
+		elif cmp < 0:
+			player.hp-=1
+			print(enemy.hand[i].get_pretty_string(), "  wins")
+		else:
+			print("draw")
+			pass
+
 func _on_card_clicked(card: Card):
 	if player_turn:
-		print(card.get_pretty_string())
 		player.pick(card)
 		remove_from_dealt(card)
 		player_turn = not player_turn

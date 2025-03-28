@@ -5,6 +5,16 @@ var hp: int = 5
 var hand: Array[Card] = []
 
 func pick(card: Card) -> void:
-	card.global_position.y = global_position.y 
-	card.global_position.x = global_position.x + len(hand) * 75
 	hand.append(card)
+	order_hand()
+
+func shuffle_hand():
+	for card in hand:
+		card.face_up = false
+		card.update_card()
+	hand.shuffle()
+
+func order_hand():
+	for i in range(0, hand.size()):
+		hand[i].global_position.y = global_position.y 
+		hand[i].global_position.x = global_position.x + i * 75
