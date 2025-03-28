@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bff4u3hj81gpa"]
+
+[ext_resource type="Script" uid="uid://cf1cg3n7fhsjg" path="res://scripts/game.gd" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://wxdbeasu565b" path="res://scenes/deck.tscn" id="2_lnu2h"]
+
+[node name="Game" type="Node2D" node_paths=PackedStringArray("deck")]
+script = ExtResource("1_yqjtg")
+deck = NodePath("Deck")
+
+[node name="Deck" parent="." instance=ExtResource("2_lnu2h")]
