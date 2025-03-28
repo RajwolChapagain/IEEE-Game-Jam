@@ -20,4 +20,5 @@ func deal(deal_size: int):
 
 func _on_card_clicked(card):
 	print(card.rank , " ", card.suit)
+	card.global_position.y += 50
 	card.update_card()
