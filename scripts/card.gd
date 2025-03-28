@@ -15,7 +15,6 @@ var face_up: bool = true
 
 func _ready() -> void:
 	update_card()
-	pass
 
 func update_card():
 	Rank_Sprite.frame = rank
