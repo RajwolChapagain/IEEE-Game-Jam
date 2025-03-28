@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5s3kmeadug3y"]
+[gd_scene load_steps=3 format=3 uid="uid://bm4p7oofa7lp0"]
 
 [ext_resource type="Texture2D" uid="uid://dqtotwp2qym3h" path="res://assets/sprites/Stage.png" id="1_t7mve"]
 [ext_resource type="Texture2D" uid="uid://c627kfy1fx1yq" path="res://assets/sprites/Cheshire Grin.png" id="2_airt6"]

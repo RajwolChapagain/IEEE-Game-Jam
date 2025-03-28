@@ -11,8 +11,6 @@ func _ready():
 	initialize_deck()
 	if is_default:
 		deck.shuffle()
-	for card in deck:
-		print(str(card.rank) + " " + str(card.suit))
 
 func initialize_deck():
 	if is_default:
