@@ -1,11 +1,11 @@
 extends Node2D
 
 @export var deck: Node2D
+@export var player: Player
+@export var enemy: Player
 @export var dealt_positions: Array[Marker2D]
 
 var dealt_card: Array[Card] = []
-var player_hand: Array[Card]= []
-var enemy_hand: Array[Card] = []
 var player_turn : bool = false
 
 func _ready():
@@ -24,17 +24,14 @@ func deal(deal_size: int):
 func enemy_pick():
 	if dealt_card.size() > 0:
 		var index: int = randi_range(0, dealt_card.size()-1)
-		enemy_hand.append(dealt_card[index])
-		dealt_card[index].global_position.y -= 50
+		enemy.pick(dealt_card[index])
 		dealt_card.pop_at(index)
 		player_turn = not player_turn
 	
 func _on_card_clicked(card: Card):
 	if player_turn:
 		print(card.get_pretty_string())
-		card.global_position.y += 50
-		card.update_card()
-		player_hand.append(card)
+		player.pick(card)
 		remove_from_dealt(card)
 		player_turn = not player_turn
 		enemy_pick()
