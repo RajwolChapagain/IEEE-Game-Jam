@@ -17,6 +17,10 @@ func _ready() -> void:
 	update_card()
 
 func update_card():
-	Rank_Sprite.frame = rank
 	Suit_Sprite.frame = suit
 	Type_Sprite.frame = type
+	
+	if suit == 0 || suit == 2:
+		Rank_Sprite.frame = rank + 12
+	else:
+		Rank_Sprite.frame = rank
