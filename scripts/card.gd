@@ -12,6 +12,7 @@ var face_up: bool = true
 @export var Rank_Sprite: AnimatedSprite2D
 @export var Suit_Sprite: AnimatedSprite2D
 @export var Type_Sprite: AnimatedSprite2D
+@export var Flip_Sprite: Sprite2D
 
 func _ready() -> void:
 	update_card()
@@ -20,11 +21,11 @@ func update_card():
 	Suit_Sprite.frame = suit
 	Type_Sprite.frame = type
 	
-	if suit == 0 || suit == 2:
+	if suit == SUIT.SPADE || suit == SUIT.CLUB:
 		Rank_Sprite.frame = rank + 12
 	else:
 		Rank_Sprite.frame = rank
 	if !face_up:
-		$FlipSprite.visible = true
+		Flip_Sprite.visible = true
 	else:
-		$FlipSprite.visible = false
+		Flip_Sprite.visible = false

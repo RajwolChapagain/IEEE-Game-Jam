@@ -1,6 +1,6 @@
 [gd_scene load_steps=40 format=3 uid="uid://c4crmhkfhroy5"]
 
-[ext_resource type="Script" uid="uid://c76khd0d8vp8" path="res://scripts/card.gd" id="1_6u4wf"]
+[ext_resource type="Script" uid="uid://cp6g8nxtdrphv" path="res://scripts/card.gd" id="1_6u4wf"]
 [ext_resource type="Texture2D" uid="uid://dm6vtv6juewgp" path="res://assets/sprites/Card Sprite Sheet.png" id="2_6u4wf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6u4wf"]

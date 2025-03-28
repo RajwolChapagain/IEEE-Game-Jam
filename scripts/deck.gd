@@ -9,7 +9,8 @@ var deck: Array = []
 
 func _ready():
 	initialize_deck()
-	print(deck)
+	for card in deck:
+		print(str(card.rank) + " " + str(card.suit))
 
 func initialize_deck():
 	var card = card_scene.instantiate()
