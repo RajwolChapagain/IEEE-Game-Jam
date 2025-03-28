@@ -8,11 +8,14 @@ var rank: int = randi_range(0, RANK.values().size()-1)
 var suit: int = randi_range(0, SUIT.values().size()-1)
 var type: int = randi_range(0, TYPE.values().size()-1)
 var face_up: bool = true
+var hovered: bool = true
 
 @export var Rank_Sprite: AnimatedSprite2D
 @export var Suit_Sprite: AnimatedSprite2D
 @export var Type_Sprite: AnimatedSprite2D
 @export var Flip_Sprite: Sprite2D
+
+signal card_clicked(card)
 
 func _ready() -> void:
 	update_card()
@@ -29,3 +32,8 @@ func update_card():
 		Flip_Sprite.visible = true
 	else:
 		Flip_Sprite.visible = false
+
+
+func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event.is_action_pressed("pick"):
+		card_clicked.emit(self)

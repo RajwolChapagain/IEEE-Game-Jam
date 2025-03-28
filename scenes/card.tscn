@@ -286,3 +286,5 @@ texture = SubResource("AtlasTexture_s4f1a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_6u4wf")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
