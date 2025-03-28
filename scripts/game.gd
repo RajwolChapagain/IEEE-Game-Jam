@@ -18,6 +18,6 @@ func deal(deal_size: int):
 		dealt_card[i].update_card()
 
 func _on_card_clicked(card):
-	print(card.rank , " ", card.suit)
+	print(card.get_pretty_string())
 	card.global_position.y += 50
 	card.update_card()
