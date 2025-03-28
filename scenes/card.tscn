@@ -1,16 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4crmhkfhroy5"]
+[gd_scene load_steps=3 format=3 uid="uid://c4crmhkfhroy5"]
 
 [ext_resource type="Script" uid="uid://c52ecb42jlshr" path="res://scripts/card.gd" id="1_6u4wf"]
-[ext_resource type="Texture2D" uid="uid://cafc4ubr8oqdl" path="res://assets/sprites/card_front_placeholder.png" id="1_d81rb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6u4wf"]
 size = Vector2(72, 96)
 
-[node name="Card" type="Area2D"]
+[node name="Card" type="Area2D" node_paths=PackedStringArray("Rank_Sprite", "Suit_Sprite", "Type_Sprite")]
 script = ExtResource("1_6u4wf")
+Rank_Sprite = NodePath("Rank")
+Suit_Sprite = NodePath("Suit")
+Type_Sprite = NodePath("Type")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_d81rb")
+[node name="Rank" type="AnimatedSprite2D" parent="."]
+
+[node name="Suit" type="AnimatedSprite2D" parent="."]
+
+[node name="Type" type="AnimatedSprite2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_6u4wf")
