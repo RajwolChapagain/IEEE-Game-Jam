@@ -5,11 +5,11 @@ extends Node2D
 
 var dealt_card = []
 
-func _ready() -> void:
+
+func _ready():
 	deal(10)
-	print("dealt cards: \n")
 	for card in dealt_card:
-		print(str(card.rank) + " " + str(card.suit))
+		card.card_clicked.connect(_on_card_clicked)
 	
 func deal(deal_size: int):
 	for i in range(0, deal_size):
@@ -17,3 +17,7 @@ func deal(deal_size: int):
 		dealt_card[i].face_up = true
 		dealt_card[i].global_position = dealt_positions[i].global_position
 		dealt_card[i].update_card()
+
+func _on_card_clicked(card):
+	print(card.rank , " ", card.suit)
+	card.update_card()
