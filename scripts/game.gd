@@ -5,7 +5,6 @@ extends Node2D
 
 var dealt_card = []
 
-
 func _ready():
 	deal(10)
 	for card in dealt_card:
