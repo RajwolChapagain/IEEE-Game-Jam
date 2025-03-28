@@ -1,4 +1,5 @@
 extends Area2D
+class_name Card
 
 enum RANK {TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE}
 enum SUIT {SPADE, CLUB, DIAMOND, HEART}

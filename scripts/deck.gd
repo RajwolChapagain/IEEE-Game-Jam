@@ -9,23 +9,26 @@ var deck: Array = []
 
 func _ready():
 	initialize_deck()
+	if is_default:
+		deck.shuffle()
 	for card in deck:
 		print(str(card.rank) + " " + str(card.suit))
 
 func initialize_deck():
-	var card = card_scene.instantiate()
 	if is_default:
-		for i in range(0, card.RANK.values().size()):
-			for j in range(0, card.SUIT.values().size()):
-				card = card_scene.instantiate()
+		for i in range(0, Card.RANK.values().size()):
+			for j in range(0, Card.SUIT.values().size()):
+				var card = card_scene.instantiate()
 				card.rank = i
 				card.suit = j
 				card.type = card.TYPE.NORMAL
+				card.face_up = false
+				card.update_card()
 				deck.append(card)
 				add_child(card)
 	else:
 		for i in range(1, deck_size):
-			card = card_scene.instantiate()
+			var card = card_scene.instantiate()
 			deck.append(card)
 			add_child(card)
 
