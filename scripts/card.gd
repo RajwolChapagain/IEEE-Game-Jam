@@ -4,9 +4,9 @@ enum RANK {TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KI
 enum SUIT {SPADE, CLUB, DIAMOND, HEART}
 enum TYPE {NORMAL, FIRE, WATER, NATURE}
 
-var rank: int
-var suit: int
-var type: int
+var rank: int = randi_range(0, RANK.values().size()-1)
+var suit: int = randi_range(0, SUIT.values().size()-1)
+var type: int = randi_range(0, TYPE.values().size()-1)
 var face_up: bool = true
 
 @export var Rank_Sprite: AnimatedSprite2D
