@@ -9,16 +9,17 @@ var deck: Array = []
 
 func _ready():
 	initialize_deck()
+	print(deck)
 
 func initialize_deck():
 	var card = card_scene.instantiate()
 	if is_default:
-		for i in range(1, card.RANK.values().size()):
-			for j in range(1, card.SUIT.values().size()):
+		for i in range(0, card.RANK.values().size()):
+			for j in range(0, card.SUIT.values().size()):
 				card = card_scene.instantiate()
 				card.rank = i
 				card.suit = j
-				card.type = card.NORMAL
+				card.type = card.TYPE.NORMAL
 				deck.append(card)
 				add_child(card)
 	else:
