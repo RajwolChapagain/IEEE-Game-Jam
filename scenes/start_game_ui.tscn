@@ -1,12 +1,12 @@
-[gd_scene load_steps=27 format=3 uid="uid://cdy5pu84by70j"]
+[gd_scene load_steps=27 format=3 uid="uid://dap0b4gkslxg5"]
 
 [ext_resource type="Texture2D" uid="uid://dqtotwp2qym3h" path="res://assets/sprites/Stage.png" id="1_23u7x"]
 [ext_resource type="Texture2D" uid="uid://b82m4v3h8k453" path="res://assets/sprites/UI SpriteSheet.png" id="1_c8jvb"]
 [ext_resource type="Texture2D" uid="uid://c627kfy1fx1yq" path="res://assets/sprites/Cheshire Grin.png" id="4_h2703"]
+[ext_resource type="Script" uid="uid://cicyo6l13a02x" path="res://scripts/menu_buttons.gd" id="4_hwyq4"]
 [ext_resource type="Texture2D" uid="uid://ch51t5n4vtugn" path="res://assets/sprites/card_back_placeholder.png" id="5_23u7x"]
-[ext_resource type="Script" uid="uid://djpwk6ii71qjj" path="res://scenes/menu_buttons.gd" id="5_h2703"]
 [ext_resource type="Texture2D" uid="uid://smpd4taj65t0" path="res://assets/sprites/Title.png" id="5_hwyq4"]
-[ext_resource type="Script" uid="uid://y5kbweywoqhp" path="res://scenes/StartButton.gd" id="7_hwyq4"]
+[ext_resource type="Script" uid="uid://bae47b0sv0bw2" path="res://scripts/StartButton.gd" id="7_hwyq4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1arxf"]
 
@@ -110,7 +110,7 @@ theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 40
-script = ExtResource("5_h2703")
+script = ExtResource("4_hwyq4")
 help_menu_screen = NodePath("HelpMenuContainer")
 
 [node name="PokerTokens" type="VBoxContainer" parent="MenuButtons"]
@@ -235,6 +235,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_nhl2i")
 theme_override_styles/normal = SubResource("StyleBoxTexture_nhl2i")
 
 [node name="TextDisplay" type="Label" parent="MenuButtons/HelpMenuContainer/Exit/MarginContainer/toggleHelpMenuButton"]
+layout_mode = 0
 offset_left = 13.0
 offset_top = 3.0
 offset_right = 25.0
