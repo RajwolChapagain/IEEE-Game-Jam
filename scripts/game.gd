@@ -32,11 +32,17 @@ func enemy_pick():
 		start_battle()
 
 func start_battle():
+	var timer = Timer.new()
+	timer.wait_time = 3
+	timer.one_shot = false
+	timer.autostart = false
+	add_child(timer)
 	player.shuffle_hand()
 	player.order_hand()
 	enemy.shuffle_hand()
 	enemy.order_hand()
 	for i in range(0, int(deal_size/2)):
+		timer.start()
 		player.hand[i].face_up = true
 		player.hand[i].update_card()
 		enemy.hand[i].face_up = true
@@ -51,6 +57,8 @@ func start_battle():
 		else:
 			print("draw")
 			pass
+			
+		await timer.timeout
 
 func _on_card_clicked(card: Card):
 	if player_turn:
