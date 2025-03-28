@@ -1,0 +1,251 @@
+[gd_scene load_steps=27 format=3 uid="uid://cdy5pu84by70j"]
+
+[ext_resource type="Texture2D" uid="uid://dqtotwp2qym3h" path="res://assets/sprites/Stage.png" id="1_23u7x"]
+[ext_resource type="Texture2D" uid="uid://b82m4v3h8k453" path="res://assets/sprites/UI SpriteSheet.png" id="1_c8jvb"]
+[ext_resource type="Texture2D" uid="uid://c627kfy1fx1yq" path="res://assets/sprites/Cheshire Grin.png" id="4_h2703"]
+[ext_resource type="Texture2D" uid="uid://ch51t5n4vtugn" path="res://assets/sprites/card_back_placeholder.png" id="5_23u7x"]
+[ext_resource type="Script" uid="uid://djpwk6ii71qjj" path="res://scenes/menu_buttons.gd" id="5_h2703"]
+[ext_resource type="Texture2D" uid="uid://smpd4taj65t0" path="res://assets/sprites/Title.png" id="5_hwyq4"]
+[ext_resource type="Script" uid="uid://y5kbweywoqhp" path="res://scenes/StartButton.gd" id="7_hwyq4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1arxf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vvjl7"]
+texture = ExtResource("1_c8jvb")
+region_rect = Rect2(96, 96, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1arxf"]
+texture = ExtResource("1_c8jvb")
+region_rect = Rect2(32, 96, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c8jvb"]
+texture = ExtResource("1_c8jvb")
+region_rect = Rect2(64, 96, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1n4kh"]
+texture = ExtResource("1_c8jvb")
+region_rect = Rect2(0, 96, 32, 32)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vvjl7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gd1gc"]
+texture = ExtResource("1_c8jvb")
+region_rect = Rect2(96, 128, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_23u7x"]
+texture = ExtResource("1_c8jvb")
+region_rect = Rect2(32, 128, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h2703"]
+texture = ExtResource("1_c8jvb")
+region_rect = Rect2(64, 128, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hwyq4"]
+texture = ExtResource("1_c8jvb")
+region_rect = Rect2(0, 128, 32, 32)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c8jvb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k72ci"]
+texture = ExtResource("1_c8jvb")
+region_rect = Rect2(96, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_68m40"]
+texture = ExtResource("1_c8jvb")
+region_rect = Rect2(32, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p0x5x"]
+texture = ExtResource("1_c8jvb")
+region_rect = Rect2(64, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eoxii"]
+texture = ExtResource("1_c8jvb")
+region_rect = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SystemFont" id="SystemFont_hwyq4"]
+font_names = PackedStringArray("PMingLiU-ExtB")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cpjw3"]
+texture = ExtResource("5_23u7x")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hwyq4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nhl2i"]
+texture = ExtResource("1_c8jvb")
+region_rect = Rect2(96, 0, 32, 32)
+
+[node name="StartGameUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 2.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Stage" type="Sprite2D" parent="."]
+position = Vector2(478, 271)
+texture = ExtResource("1_23u7x")
+
+[node name="CheshireGrin" type="Sprite2D" parent="."]
+position = Vector2(480, 561)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("4_h2703")
+
+[node name="title" type="Sprite2D" parent="."]
+position = Vector2(480, 105)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_hwyq4")
+
+[node name="MenuButtons" type="MarginContainer" parent="." node_paths=PackedStringArray("help_menu_screen")]
+layout_mode = 0
+offset_left = -9.0
+offset_top = -4.0
+offset_right = 950.0
+offset_bottom = 533.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 40
+script = ExtResource("5_h2703")
+help_menu_screen = NodePath("HelpMenuContainer")
+
+[node name="PokerTokens" type="VBoxContainer" parent="MenuButtons"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuButtons/PokerTokens"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SoundButton" type="Button" parent="MenuButtons/PokerTokens/HBoxContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1arxf")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_vvjl7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1arxf")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_c8jvb")
+theme_override_styles/normal = SubResource("StyleBoxTexture_1n4kh")
+
+[node name="MusicButton" type="Button" parent="MenuButtons/PokerTokens/HBoxContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vvjl7")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_gd1gc")
+theme_override_styles/hover = SubResource("StyleBoxTexture_23u7x")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_h2703")
+theme_override_styles/normal = SubResource("StyleBoxTexture_hwyq4")
+
+[node name="toggleHelpMenuButton" type="Button" parent="MenuButtons/PokerTokens/HBoxContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c8jvb")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_k72ci")
+theme_override_styles/hover = SubResource("StyleBoxTexture_68m40")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_p0x5x")
+theme_override_styles/normal = SubResource("StyleBoxTexture_eoxii")
+
+[node name="TextDisplay" type="Label" parent="MenuButtons/PokerTokens/HBoxContainer/toggleHelpMenuButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.413
+anchor_top = 0.293
+anchor_right = 0.6
+anchor_bottom = 0.707
+offset_left = 0.0249996
+offset_top = 0.0249996
+offset_bottom = -0.0250015
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = SubResource("SystemFont_hwyq4")
+theme_override_font_sizes/font_size = 25
+text = "?"
+
+[node name="StartButton" type="VBoxContainer" parent="MenuButtons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuButtons/StartButton"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="StartButton" type="Button" parent="MenuButtons/StartButton/HBoxContainer"]
+custom_minimum_size = Vector2(72, 96)
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxTexture_cpjw3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cpjw3")
+theme_override_styles/normal = SubResource("StyleBoxTexture_cpjw3")
+script = ExtResource("7_hwyq4")
+
+[node name="HelpMenuContainer" type="MarginContainer" parent="MenuButtons"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MenuButtons/HelpMenuContainer"]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_c8jvb")
+region_rect = Rect2(0, 64, 32, 32)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuButtons/HelpMenuContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="TextDisplay" type="Label" parent="MenuButtons/HelpMenuContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0705882, 0.12549, 0.12549, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = SubResource("SystemFont_hwyq4")
+theme_override_font_sizes/font_size = 25
+text = " HOW TO PLAY:
+"
+
+[node name="Exit" type="VBoxContainer" parent="MenuButtons/HelpMenuContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuButtons/HelpMenuContainer/Exit"]
+layout_mode = 2
+theme_override_constants/margin_top = -12
+theme_override_constants/margin_right = -12
+
+[node name="toggleHelpMenuButton" type="Button" parent="MenuButtons/HelpMenuContainer/Exit/MarginContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hwyq4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_nhl2i")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_nhl2i")
+theme_override_styles/normal = SubResource("StyleBoxTexture_nhl2i")
+
+[node name="TextDisplay" type="Label" parent="MenuButtons/HelpMenuContainer/Exit/MarginContainer/toggleHelpMenuButton"]
+offset_left = 13.0
+offset_top = 3.0
+offset_right = 25.0
+offset_bottom = 29.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = SubResource("SystemFont_hwyq4")
+theme_override_font_sizes/font_size = 20
+text = "x"
+
+[connection signal="pressed" from="MenuButtons/PokerTokens/HBoxContainer/toggleHelpMenuButton" to="MenuButtons" method="_on_toggle_help_menu_button_pressed"]
+[connection signal="pressed" from="MenuButtons/StartButton/HBoxContainer/StartButton" to="MenuButtons" method="_on_start_button_pressed"]
+[connection signal="pressed" from="MenuButtons/HelpMenuContainer/Exit/MarginContainer/toggleHelpMenuButton" to="MenuButtons" method="_on_toggle_help_menu_button_pressed"]
