@@ -127,3 +127,13 @@ func _on_enemy_entity_died() -> void:
 	
 func end_battle(player_won: bool) -> void:
 	battle_ended = true
+	return_cards()
+
+func return_cards():
+	# Empties the player hand array
+	player.hand.clear() 
+	enemy.hand.clear()
+	
+	# Returns all cards to the deck's position
+	deck.clear() 
+	
