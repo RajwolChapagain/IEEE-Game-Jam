@@ -5,6 +5,8 @@ extends Node2D
 @export var enemy: Player
 @export var dealt_positions: Array[Marker2D]
 
+enum BATTLE {LOSS, WIN, CONTINUE}
+
 var dealt_card: Array[Card] = []
 var player_turn: bool = false
 var deal_size: int = 10
@@ -32,57 +34,67 @@ func enemy_turn():
 		dealt_card.pop_at(index)
 		player_turn = not player_turn
 	else:
-		var battle_progress = await start_battle()
-		if battle_progress == 0:
-			continue_game()
+		start_battle()
+
 
 func continue_game():
 	clear_game()
 	start_game()
 
-func start_battle() -> int:
-	var timer = Timer.new() 
-	timer.wait_time = 1
-	timer.one_shot = false
-	timer.autostart = false
-	add_child(timer)
-	
+func start_battle():
 	player.shuffle_hand()
 	player.order_hand()
 	enemy.shuffle_hand()
 	enemy.order_hand()
 	
 	for i in range(0, int(deal_size/2)):
-		timer.start()
-		await timer.timeout
-		
-		player.hand[i].face_up = true
-		player.hand[i].update_card()
-		enemy.hand[i].face_up = true
-		enemy.hand[i].update_card()
-		
-		var cmp = Calculator.compare(player.hand[i], enemy.hand[i])
-		if cmp > 0:
-			enemy.hp-=1
-			print("player wins round")
-		elif cmp < 0:
-			player.hp-=1
-			print("enemy wins round")
-		else:
-			print("draw round")
-			pass
-			
-		if player.hp <= 0:
+		var battle_result = await battle_round(player.hand[i], enemy.hand[i])
+		if battle_result == BATTLE.WIN:
+			print("PLAYER WINS")
+			return BATTLE.WIN
+		elif battle_result == BATTLE.LOSS:
 			print("PLAYER DIED")
-			timer.queue_free()
-			return -1
-		elif enemy.hp <= 0:
-			print("ENEMY DIED")
-			timer.queue_free()
-			return 1
-	print("NEXT ROUND")
+			return BATTLE.LOSS
+		else:
+			pass
+	
+	continue_game()
+
+func battle_round(player_card: Card, enemy_card: Card) -> int:
+	await round_timer()
+	
+	player_card.face_up = true
+	player_card.update_card()
+	enemy_card.face_up = true
+	enemy_card.update_card()
+	
+	var cmp = Calculator.compare(player_card, enemy_card)
+	if cmp > 0:
+		enemy.hp-=1
+		print("player wins round")
+	elif cmp < 0:
+		player.hp-=1
+		print("enemy wins round")
+	else:
+		print("draw round")
+		pass
+		
+	if player.hp <= 0:
+		return BATTLE.LOSS
+	elif enemy.hp <= 0:
+		return BATTLE.WIN
+	else:
+		return BATTLE.CONTINUE
+
+func round_timer():
+	var timer = Timer.new() 
+	timer.wait_time = 1
+	timer.one_shot = true
+	timer.autostart = false
+	add_child(timer)
+	timer.start()
+	await timer.timeout
 	timer.queue_free()
-	return 0
 
 func clear_game():
 	player.clear()
