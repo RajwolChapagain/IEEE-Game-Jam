@@ -6,6 +6,9 @@ class_name Player
 var hp: int = initial_hp
 var hand: Array[Card] = []
 
+signal entity_damaged
+signal entity_died
+
 func pick(card: Card) -> void:
 	hand.append(card)
 	order_hand()
@@ -15,6 +18,7 @@ func shuffle_hand():
 		card.face_up = false
 		card.update_card()
 	hand.shuffle()
+	order_hand()
 
 func order_hand():
 	for i in range(0, hand.size()):
@@ -25,3 +29,9 @@ func order_hand():
 
 func clear():
 	hand.clear()
+
+func take_damage(damage):
+	hp -= damage
+	entity_damaged.emit()
+	if hp <= 0:
+		entity_died.emit()
