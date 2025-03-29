@@ -1,0 +1,172 @@
+[gd_scene load_steps=16 format=3 uid="uid://c7gl3euyyvp5y"]
+
+[ext_resource type="Script" uid="uid://8lh0xn6n5i41" path="res://scripts/menu_buttons.gd" id="1_xju1o"]
+[ext_resource type="Texture2D" uid="uid://b82m4v3h8k453" path="res://assets/sprites/UI SpriteSheet.png" id="2_6smnm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sd4ph"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nr0t1"]
+texture = ExtResource("2_6smnm")
+region_rect = Rect2(96, 96, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7fk0f"]
+texture = ExtResource("2_6smnm")
+region_rect = Rect2(32, 96, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_085k7"]
+texture = ExtResource("2_6smnm")
+region_rect = Rect2(64, 96, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t4gnd"]
+texture = ExtResource("2_6smnm")
+region_rect = Rect2(0, 96, 32, 32)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gs84k"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6gi65"]
+texture = ExtResource("2_6smnm")
+region_rect = Rect2(96, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y7ln8"]
+texture = ExtResource("2_6smnm")
+region_rect = Rect2(32, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pniy6"]
+texture = ExtResource("2_6smnm")
+region_rect = Rect2(64, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h07c1"]
+texture = ExtResource("2_6smnm")
+region_rect = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SystemFont" id="SystemFont_03mrb"]
+font_names = PackedStringArray("PMingLiU-ExtB")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kruij"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0viof"]
+texture = ExtResource("2_6smnm")
+region_rect = Rect2(96, 0, 32, 32)
+
+[node name="MenuButtons" type="MarginContainer" node_paths=PackedStringArray("help_menu_screen")]
+offset_left = -10.0
+offset_top = -1.0
+offset_right = 949.0
+offset_bottom = 536.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 40
+script = ExtResource("1_xju1o")
+help_menu_screen = NodePath("HelpMenuContainer")
+
+[node name="PokerTokens" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PokerTokens"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SoundButton" type="Button" parent="PokerTokens/HBoxContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sd4ph")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_nr0t1")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7fk0f")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_085k7")
+theme_override_styles/normal = SubResource("StyleBoxTexture_t4gnd")
+
+[node name="toggleHelpMenuButton" type="Button" parent="PokerTokens/HBoxContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gs84k")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_6gi65")
+theme_override_styles/hover = SubResource("StyleBoxTexture_y7ln8")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_pniy6")
+theme_override_styles/normal = SubResource("StyleBoxTexture_h07c1")
+
+[node name="TextDisplay" type="Label" parent="PokerTokens/HBoxContainer/toggleHelpMenuButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.413
+anchor_top = 0.293
+anchor_right = 0.6
+anchor_bottom = 0.707
+offset_left = 0.0249996
+offset_top = 0.0249996
+offset_bottom = -0.0250015
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = SubResource("SystemFont_03mrb")
+theme_override_font_sizes/font_size = 25
+text = "?"
+
+[node name="HelpMenuContainer" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="HelpMenuContainer"]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_6smnm")
+region_rect = Rect2(0, 64, 32, 32)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HelpMenuContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="TextDisplay" type="Label" parent="HelpMenuContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0705882, 0.12549, 0.12549, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = SubResource("SystemFont_03mrb")
+theme_override_font_sizes/font_size = 25
+text = " HOW TO PLAY:
+"
+
+[node name="Exit" type="VBoxContainer" parent="HelpMenuContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HelpMenuContainer/Exit"]
+layout_mode = 2
+theme_override_constants/margin_top = -12
+theme_override_constants/margin_right = -12
+
+[node name="toggleHelpMenuButton" type="Button" parent="HelpMenuContainer/Exit/MarginContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kruij")
+theme_override_styles/hover = SubResource("StyleBoxTexture_0viof")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0viof")
+theme_override_styles/normal = SubResource("StyleBoxTexture_0viof")
+
+[node name="TextDisplay" type="Label" parent="HelpMenuContainer/Exit/MarginContainer/toggleHelpMenuButton"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 3.0
+offset_right = 25.0
+offset_bottom = 29.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = SubResource("SystemFont_03mrb")
+theme_override_font_sizes/font_size = 20
+text = "x"
+
+[connection signal="toggled" from="PokerTokens/HBoxContainer/SoundButton" to="." method="_on_sound_button_toggled"]
+[connection signal="pressed" from="PokerTokens/HBoxContainer/toggleHelpMenuButton" to="." method="_on_toggle_help_menu_button_pressed"]
+[connection signal="pressed" from="HelpMenuContainer/Exit/MarginContainer/toggleHelpMenuButton" to="." method="_on_toggle_help_menu_button_pressed"]
