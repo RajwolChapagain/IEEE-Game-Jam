@@ -26,7 +26,7 @@ func initialize_deck():
 				deck.append(card)
 				add_child(card)
 	else:
-		for i in range(1, deck_size):
+		for i in range(0, deck_size):
 			var card = card_scene.instantiate()
 			deck.append(card)
 			add_child(card)
