@@ -1,17 +1,8 @@
-[gd_resource type="Resource" script_class="EnemyStats" load_steps=5 format=3 uid="uid://b7gbhlwp35iwp"]
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=2 format=3 uid="uid://b7gbhlwp35iwp"]
 
 [ext_resource type="Script" uid="uid://bsm5o485aikcf" path="res://scripts/enemy_stats.gd" id="1_dn0am"]
-[ext_resource type="Texture2D" uid="uid://6p768xxlleia" path="res://assets/sprites/Character Portrait Sprites.png" id="1_ywabe"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c1mqp"]
-atlas = ExtResource("1_ywabe")
-region = Rect2(128, 240, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vamei"]
-atlas = SubResource("AtlasTexture_c1mqp")
 
 [resource]
 script = ExtResource("1_dn0am")
 max_hp = 7
-portrait = SubResource("AtlasTexture_vamei")
 metadata/_custom_type_script = "uid://bsm5o485aikcf"
