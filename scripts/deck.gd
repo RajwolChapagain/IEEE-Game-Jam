@@ -1,4 +1,5 @@
 extends Node2D
+class_name Deck
 
 var card_scene = preload("res://scenes/card.tscn")
 
@@ -32,3 +33,7 @@ func initialize_deck():
 
 func shuffle_deck():
 	deck.shuffle()
+
+func clear():
+	for card in deck:
+		card.global_position = global_position

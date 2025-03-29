@@ -14,6 +14,7 @@ enemy = NodePath("Enemy")
 dealt_positions = [NodePath("CardPositions/CardPosition1"), NodePath("CardPositions/CardPosition2"), NodePath("CardPositions/CardPosition3"), NodePath("CardPositions/CardPosition4"), NodePath("CardPositions/CardPosition5"), NodePath("CardPositions/CardPosition6"), NodePath("CardPositions/CardPosition7"), NodePath("CardPositions/CardPosition8"), NodePath("CardPositions/CardPosition9"), NodePath("CardPositions/CardPosition10")]
 
 [node name="Deck" parent="." instance=ExtResource("2_lnu2h")]
+position = Vector2(880, 100)
 
 [node name="Player" parent="." instance=ExtResource("3_lbhrr")]
 position = Vector2(100, 400)

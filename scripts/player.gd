@@ -1,7 +1,9 @@
 extends Node2D
 class_name Player
 
-var hp: int = 5
+@export var initial_hp: int = 5
+
+var hp: int = initial_hp
 var hand: Array[Card] = []
 
 func pick(card: Card) -> void:
@@ -18,3 +20,6 @@ func order_hand():
 	for i in range(0, hand.size()):
 		hand[i].global_position.y = global_position.y 
 		hand[i].global_position.x = global_position.x + i * 75
+
+func clear():
+	hand.clear()
