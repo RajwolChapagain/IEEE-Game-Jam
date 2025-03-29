@@ -436,6 +436,7 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_vvjl7")
 theme_override_styles/hover = SubResource("StyleBoxTexture_1arxf")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_c8jvb")
 theme_override_styles/normal = SubResource("StyleBoxTexture_1n4kh")
+toggle_mode = true
 
 [node name="MusicButton" type="Button" parent="MenuButtons/PokerTokens/HBoxContainer"]
 custom_minimum_size = Vector2(75, 75)
@@ -445,6 +446,7 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_gd1gc")
 theme_override_styles/hover = SubResource("StyleBoxTexture_23u7x")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_h2703")
 theme_override_styles/normal = SubResource("StyleBoxTexture_hwyq4")
+toggle_mode = true
 
 [node name="toggleHelpMenuButton" type="Button" parent="MenuButtons/PokerTokens/HBoxContainer"]
 custom_minimum_size = Vector2(75, 75)
