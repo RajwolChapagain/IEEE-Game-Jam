@@ -1,12 +1,306 @@
-[gd_scene load_steps=27 format=3 uid="uid://dap0b4gkslxg5"]
+[gd_scene load_steps=58 format=3 uid="uid://dap0b4gkslxg5"]
 
 [ext_resource type="Texture2D" uid="uid://dqtotwp2qym3h" path="res://assets/sprites/Stage.png" id="1_23u7x"]
 [ext_resource type="Texture2D" uid="uid://b82m4v3h8k453" path="res://assets/sprites/UI SpriteSheet.png" id="1_c8jvb"]
-[ext_resource type="Texture2D" uid="uid://c627kfy1fx1yq" path="res://assets/sprites/Cheshire Grin.png" id="4_h2703"]
-[ext_resource type="Script" uid="uid://cicyo6l13a02x" path="res://scripts/menu_buttons.gd" id="4_hwyq4"]
-[ext_resource type="Texture2D" uid="uid://ch51t5n4vtugn" path="res://assets/sprites/card_back_placeholder.png" id="5_23u7x"]
+[ext_resource type="Texture2D" uid="uid://vkqb2veev7du" path="res://assets/sprites/Cheshire Mouth Open.png" id="3_gd1gc"]
+[ext_resource type="Texture2D" uid="uid://bf5usch3m1sxs" path="res://assets/sprites/Cheshire Mouth Close.png" id="3_k72ci"]
+[ext_resource type="Script" uid="uid://8lh0xn6n5i41" path="res://scripts/menu_buttons.gd" id="4_hwyq4"]
 [ext_resource type="Texture2D" uid="uid://smpd4taj65t0" path="res://assets/sprites/Title.png" id="5_hwyq4"]
-[ext_resource type="Script" uid="uid://bae47b0sv0bw2" path="res://scripts/StartButton.gd" id="7_hwyq4"]
+[ext_resource type="Texture2D" uid="uid://ddqsftlxu0r8d" path="res://assets/sprites/Cheshire Mouth Vanish.png" id="5_p0x5x"]
+[ext_resource type="Texture2D" uid="uid://dm6vtv6juewgp" path="res://assets/sprites/Card Sprite Sheet.png" id="6_hwyq4"]
+[ext_resource type="Script" uid="uid://b5143g88vvvyo" path="res://scripts/StartButton.gd" id="7_hwyq4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yqpv"]
+atlas = ExtResource("3_k72ci")
+region = Rect2(0, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ef1n"]
+atlas = ExtResource("3_k72ci")
+region = Rect2(960, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3525"]
+atlas = ExtResource("3_k72ci")
+region = Rect2(1920, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hufc2"]
+atlas = ExtResource("3_k72ci")
+region = Rect2(2880, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8n7j"]
+atlas = ExtResource("3_k72ci")
+region = Rect2(3840, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5pn3"]
+atlas = ExtResource("3_k72ci")
+region = Rect2(4800, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68m40"]
+atlas = ExtResource("3_gd1gc")
+region = Rect2(0, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k72ci"]
+atlas = ExtResource("3_gd1gc")
+region = Rect2(960, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0x5x"]
+atlas = ExtResource("3_gd1gc")
+region = Rect2(1920, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eoxii"]
+atlas = ExtResource("3_gd1gc")
+region = Rect2(2880, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhl2i"]
+atlas = ExtResource("3_gd1gc")
+region = Rect2(3840, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpjw3"]
+atlas = ExtResource("3_gd1gc")
+region = Rect2(4800, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0rn3"]
+atlas = ExtResource("3_gd1gc")
+region = Rect2(5760, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_453cg"]
+atlas = ExtResource("3_gd1gc")
+region = Rect2(6720, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lucg"]
+atlas = ExtResource("5_p0x5x")
+region = Rect2(0, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifh6j"]
+atlas = ExtResource("5_p0x5x")
+region = Rect2(960, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nel5"]
+atlas = ExtResource("5_p0x5x")
+region = Rect2(1920, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcq18"]
+atlas = ExtResource("5_p0x5x")
+region = Rect2(2880, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0cdx"]
+atlas = ExtResource("5_p0x5x")
+region = Rect2(3840, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_miyp5"]
+atlas = ExtResource("5_p0x5x")
+region = Rect2(4800, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3a7f1"]
+atlas = ExtResource("5_p0x5x")
+region = Rect2(5760, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yf5c7"]
+atlas = ExtResource("5_p0x5x")
+region = Rect2(6720, 0, 960, 540)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3yqpv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yqpv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ef1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3525")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hufc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8n7j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5pn3")
+}],
+"loop": true,
+"name": &"Close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68m40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k72ci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0x5x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eoxii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhl2i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cpjw3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0rn3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_453cg")
+}],
+"loop": true,
+"name": &"Open",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lucg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifh6j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nel5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bcq18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0cdx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_miyp5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3a7f1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yf5c7")
+}],
+"loop": true,
+"name": &"Vanish",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_68m40"]
+resource_name = "OpenMouth"
+step = 0.0666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cheshire:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Open"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cheshire:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_k72ci"]
+resource_name = "CloseMouth"
+length = 2.00001
+step = 0.0666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cheshire:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"Close", &"Vanish"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cheshire:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 1.15, 1.2, 1.26667, 1.33333, 1.4, 1.46667, 1.53333, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_eoxii"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cheshire:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Open"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cheshire:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_p0x5x"]
+resource_name = "AppearMouth"
+step = 0.0666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cheshire:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Vanish"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cheshire:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 6, 5, 4, 3, 2, 1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nhl2i"]
+_data = {
+&"AppearMouth": SubResource("Animation_p0x5x"),
+&"CloseMouth": SubResource("Animation_k72ci"),
+&"OpenMouth": SubResource("Animation_68m40"),
+&"RESET": SubResource("Animation_eoxii")
+}
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1arxf"]
 
@@ -65,8 +359,11 @@ region_rect = Rect2(0, 0, 32, 32)
 [sub_resource type="SystemFont" id="SystemFont_hwyq4"]
 font_names = PackedStringArray("PMingLiU-ExtB")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_68m40"]
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cpjw3"]
-texture = ExtResource("5_23u7x")
+texture = ExtResource("6_hwyq4")
+region_rect = Rect2(288, 0, 72, 96)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hwyq4"]
 
@@ -90,10 +387,17 @@ grow_vertical = 2
 position = Vector2(478, 271)
 texture = ExtResource("1_23u7x")
 
-[node name="CheshireGrin" type="Sprite2D" parent="."]
-position = Vector2(480, 561)
-scale = Vector2(1.25, 1.25)
-texture = ExtResource("4_h2703")
+[node name="Cheshire" type="AnimatedSprite2D" parent="."]
+position = Vector2(480, 372)
+sprite_frames = SubResource("SpriteFrames_3yqpv")
+animation = &"Open"
+
+[node name="CheshireAnimationPlayer" type="AnimationPlayer" parent="Cheshire"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_nhl2i")
+}
+autoplay = "AppearMouth"
 
 [node name="title" type="Sprite2D" parent="."]
 position = Vector2(480, 105)
@@ -102,16 +406,17 @@ texture = ExtResource("5_hwyq4")
 
 [node name="MenuButtons" type="MarginContainer" parent="." node_paths=PackedStringArray("help_menu_screen")]
 layout_mode = 0
-offset_left = -9.0
-offset_top = -4.0
-offset_right = 950.0
-offset_bottom = 533.0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 958.0
+offset_bottom = 536.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 40
 script = ExtResource("4_hwyq4")
 help_menu_screen = NodePath("HelpMenuContainer")
+metadata/_edit_lock_ = true
 
 [node name="PokerTokens" type="VBoxContainer" parent="MenuButtons"]
 layout_mode = 2
@@ -179,6 +484,7 @@ theme_override_constants/separation = 10
 [node name="StartButton" type="Button" parent="MenuButtons/StartButton/HBoxContainer"]
 custom_minimum_size = Vector2(72, 96)
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_68m40")
 theme_override_styles/hover = SubResource("StyleBoxTexture_cpjw3")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_cpjw3")
 theme_override_styles/normal = SubResource("StyleBoxTexture_cpjw3")
