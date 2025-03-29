@@ -52,7 +52,7 @@ func get_pretty_string() -> String:
 	return str(TYPE_STRINGS[type]) + " " + str(RANK_STRINGS[rank]) + " of " + str(SUIT_STRINGS[suit])
 	
 func get_comparison_val() -> int:
-	var comp_val = rank
+	var comp_val = rank + 2
 	for effect in applied_effects:
 		comp_val = Relic.apply_relic(comp_val, effect)
 	return comp_val
@@ -66,4 +66,3 @@ func display_effects() -> void:
 func hide_effects() -> void:
 	for animated_sprite in Effects_Sprite_Array:
 		animated_sprite.visible = false
-	

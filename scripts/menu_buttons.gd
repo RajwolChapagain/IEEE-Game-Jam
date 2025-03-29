@@ -1,5 +1,6 @@
 extends MarginContainer
 @export var help_menu_screen: MarginContainer
+signal music_toggled
 
 func toggle_visibility(object):
 	if object.visible:
@@ -29,3 +30,7 @@ func _on_start_button_pressed() -> void:
 	$"../Cheshire/CheshireAnimationPlayer".play("CloseMouth")
 	await $"../Cheshire/CheshireAnimationPlayer".animation_finished
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
+
+func _on_sound_button_toggled(toggled_on):
+	Utils.muted = !Utils.muted
+	music_toggled.emit()

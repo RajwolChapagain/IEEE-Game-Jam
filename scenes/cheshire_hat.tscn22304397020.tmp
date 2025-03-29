@@ -1,0 +1,356 @@
+[gd_scene load_steps=34 format=3 uid="uid://bi2o10kvfnjln"]
+
+[ext_resource type="Script" uid="uid://trqqs7eie31s" path="res://scripts/cheshire_hat.gd" id="1_a4q6l"]
+[ext_resource type="Texture2D" uid="uid://bf5usch3m1sxs" path="res://assets/sprites/Cheshire Mouth Close.png" id="2_u30v0"]
+[ext_resource type="Texture2D" uid="uid://vkqb2veev7du" path="res://assets/sprites/Cheshire Mouth Open.png" id="3_uawng"]
+[ext_resource type="Texture2D" uid="uid://ddqsftlxu0r8d" path="res://assets/sprites/Cheshire Mouth Vanish.png" id="4_pvowj"]
+[ext_resource type="PackedScene" uid="uid://wxdbeasu565b" path="res://scenes/deck.tscn" id="5_ymfra"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yqpv"]
+atlas = ExtResource("2_u30v0")
+region = Rect2(0, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ef1n"]
+atlas = ExtResource("2_u30v0")
+region = Rect2(960, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3525"]
+atlas = ExtResource("2_u30v0")
+region = Rect2(1920, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hufc2"]
+atlas = ExtResource("2_u30v0")
+region = Rect2(2880, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8n7j"]
+atlas = ExtResource("2_u30v0")
+region = Rect2(3840, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5pn3"]
+atlas = ExtResource("2_u30v0")
+region = Rect2(4800, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68m40"]
+atlas = ExtResource("3_uawng")
+region = Rect2(0, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k72ci"]
+atlas = ExtResource("3_uawng")
+region = Rect2(960, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0x5x"]
+atlas = ExtResource("3_uawng")
+region = Rect2(1920, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eoxii"]
+atlas = ExtResource("3_uawng")
+region = Rect2(2880, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhl2i"]
+atlas = ExtResource("3_uawng")
+region = Rect2(3840, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpjw3"]
+atlas = ExtResource("3_uawng")
+region = Rect2(4800, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0rn3"]
+atlas = ExtResource("3_uawng")
+region = Rect2(5760, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_453cg"]
+atlas = ExtResource("3_uawng")
+region = Rect2(6720, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lucg"]
+atlas = ExtResource("4_pvowj")
+region = Rect2(0, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifh6j"]
+atlas = ExtResource("4_pvowj")
+region = Rect2(960, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nel5"]
+atlas = ExtResource("4_pvowj")
+region = Rect2(1920, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcq18"]
+atlas = ExtResource("4_pvowj")
+region = Rect2(2880, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0cdx"]
+atlas = ExtResource("4_pvowj")
+region = Rect2(3840, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_miyp5"]
+atlas = ExtResource("4_pvowj")
+region = Rect2(4800, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3a7f1"]
+atlas = ExtResource("4_pvowj")
+region = Rect2(5760, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yf5c7"]
+atlas = ExtResource("4_pvowj")
+region = Rect2(6720, 0, 960, 540)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ep8ru"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yqpv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ef1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3525")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hufc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8n7j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5pn3")
+}],
+"loop": true,
+"name": &"Close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68m40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k72ci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0x5x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eoxii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhl2i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cpjw3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0rn3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_453cg")
+}],
+"loop": true,
+"name": &"Open",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lucg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifh6j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nel5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bcq18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0cdx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_miyp5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3a7f1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yf5c7")
+}],
+"loop": true,
+"name": &"Vanish",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_p0x5x"]
+resource_name = "AppearMouth"
+step = 0.0666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cheshire:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Vanish"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cheshire:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 6, 5, 4, 3, 2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_k72ci"]
+resource_name = "CloseMouth"
+length = 2.00001
+step = 0.0666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cheshire:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"Close", &"Vanish"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cheshire:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 1.15, 1.2, 1.26667, 1.33333, 1.4, 1.46667, 1.53333, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_68m40"]
+resource_name = "OpenMouth"
+step = 0.0666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cheshire:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Open"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cheshire:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_eoxii"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cheshire:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Open"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cheshire:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nhl2i"]
+_data = {
+&"AppearMouth": SubResource("Animation_p0x5x"),
+&"CloseMouth": SubResource("Animation_k72ci"),
+&"OpenMouth": SubResource("Animation_68m40"),
+&"RESET": SubResource("Animation_eoxii")
+}
+
+[node name="CheshireHat" type="Node2D" node_paths=PackedStringArray("deck", "anim", "sprite", "dealt_positions")]
+script = ExtResource("1_a4q6l")
+deck = NodePath("Deck")
+anim = NodePath("Cheshire/CheshireAnimationPlayer")
+sprite = NodePath("Cheshire")
+dealt_positions = [NodePath("CardPositions/CardPosition1"), NodePath("CardPositions/CardPosition2"), NodePath("CardPositions/CardPosition3"), NodePath("CardPositions/CardPosition4"), NodePath("CardPositions/CardPosition5"), NodePath("CardPositions/CardPosition6"), NodePath("CardPositions/CardPosition7"), NodePath("CardPositions/CardPosition8"), NodePath("CardPositions/CardPosition9"), NodePath("CardPositions/CardPosition10")]
+
+[node name="Cheshire" type="AnimatedSprite2D" parent="."]
+z_index = -1
+position = Vector2(480, 372)
+sprite_frames = SubResource("SpriteFrames_ep8ru")
+animation = &"Open"
+
+[node name="CheshireAnimationPlayer" type="AnimationPlayer" parent="Cheshire"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_nhl2i")
+}
+autoplay = "AppearMouth"
+
+[node name="Deck" parent="." instance=ExtResource("5_ymfra")]
+position = Vector2(480, 372)
+is_default = false
+deck_size = 10
+
+[node name="CardPositions" type="Node2D" parent="."]
+
+[node name="CardPosition1" type="Marker2D" parent="CardPositions"]
+position = Vector2(75, 170)
+
+[node name="CardPosition2" type="Marker2D" parent="CardPositions"]
+position = Vector2(150, 170)
+
+[node name="CardPosition3" type="Marker2D" parent="CardPositions"]
+position = Vector2(225, 170)
+
+[node name="CardPosition4" type="Marker2D" parent="CardPositions"]
+position = Vector2(300, 170)
+
+[node name="CardPosition5" type="Marker2D" parent="CardPositions"]
+position = Vector2(375, 170)
+
+[node name="CardPosition6" type="Marker2D" parent="CardPositions"]
+position = Vector2(450, 170)
+
+[node name="CardPosition7" type="Marker2D" parent="CardPositions"]
+position = Vector2(525, 170)
+
+[node name="CardPosition8" type="Marker2D" parent="CardPositions"]
+position = Vector2(600, 170)
+
+[node name="CardPosition9" type="Marker2D" parent="CardPositions"]
+position = Vector2(675, 170)
+
+[node name="CardPosition10" type="Marker2D" parent="CardPositions"]
+position = Vector2(750, 170)

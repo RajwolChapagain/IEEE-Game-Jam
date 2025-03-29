@@ -1,4 +1,5 @@
-[gd_scene load_steps=63 format=3 uid="uid://cdy5pu84by70j"]
+
+[gd_scene load_steps=54 format=3 uid="uid://dap0b4gkslxg5"]
 
 [ext_resource type="Texture2D" uid="uid://dqtotwp2qym3h" path="res://assets/sprites/Stage.png" id="1_23u7x"]
 [ext_resource type="Texture2D" uid="uid://b82m4v3h8k453" path="res://assets/sprites/UI SpriteSheet.png" id="1_c8jvb"]
@@ -12,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://s5ui77lvk788" path="res://assets/sprites/Relic Sprite Sheet.png" id="10_eoxii"]
 [ext_resource type="Texture2D" uid="uid://6p768xxlleia" path="res://assets/sprites/Character Portrait Sprites.png" id="11_nhl2i"]
 [ext_resource type="PackedScene" uid="uid://c4crmhkfhroy5" path="res://scenes/card.tscn" id="12_cpjw3"]
+[ext_resource type="Script" uid="uid://b5143g88vvvyo" path="res://scripts/StartButton.gd" id="7_hwyq4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3yqpv"]
 atlas = ExtResource("3_k72ci")
@@ -323,24 +325,6 @@ region_rect = Rect2(64, 96, 32, 32)
 texture = ExtResource("1_c8jvb")
 region_rect = Rect2(0, 96, 32, 32)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vvjl7"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gd1gc"]
-texture = ExtResource("1_c8jvb")
-region_rect = Rect2(96, 128, 32, 32)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_23u7x"]
-texture = ExtResource("1_c8jvb")
-region_rect = Rect2(32, 128, 32, 32)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h2703"]
-texture = ExtResource("1_c8jvb")
-region_rect = Rect2(64, 128, 32, 32)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hwyq4"]
-texture = ExtResource("1_c8jvb")
-region_rect = Rect2(0, 128, 32, 32)
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c8jvb"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k72ci"]
@@ -381,6 +365,10 @@ font_names = PackedStringArray("PMingLiU-ExtB")
 texture = ExtResource("1_c8jvb")
 region_rect = Rect2(96, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1emw"]
+atlas = ExtResource("6_hwyq4")
+region = Rect2(288, 0, 72, 96)
+
 [node name="StartGameUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -410,15 +398,15 @@ libraries = {
 autoplay = "AppearMouth"
 
 [node name="title" type="Sprite2D" parent="."]
-position = Vector2(480, 105)
-scale = Vector2(0.8, 0.8)
+position = Vector2(481, 122)
+scale = Vector2(0.717647, 0.717647)
 texture = ExtResource("5_hwyq4")
 
 [node name="MenuButtons" type="MarginContainer" parent="." node_paths=PackedStringArray("help_menu_screen")]
 layout_mode = 0
-offset_left = -1.0
+offset_left = 9.0
 offset_top = -1.0
-offset_right = 958.0
+offset_right = 950.0
 offset_bottom = 536.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
@@ -426,7 +414,6 @@ theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 40
 script = ExtResource("4_hwyq4")
 help_menu_screen = NodePath("HelpMenuContainer")
-metadata/_edit_lock_ = true
 
 [node name="PokerTokens" type="VBoxContainer" parent="MenuButtons"]
 layout_mode = 2
@@ -445,16 +432,6 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_vvjl7")
 theme_override_styles/hover = SubResource("StyleBoxTexture_1arxf")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_c8jvb")
 theme_override_styles/normal = SubResource("StyleBoxTexture_1n4kh")
-toggle_mode = true
-
-[node name="MusicButton" type="Button" parent="MenuButtons/PokerTokens/HBoxContainer"]
-custom_minimum_size = Vector2(75, 75)
-layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_vvjl7")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_gd1gc")
-theme_override_styles/hover = SubResource("StyleBoxTexture_23u7x")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_h2703")
-theme_override_styles/normal = SubResource("StyleBoxTexture_hwyq4")
 toggle_mode = true
 
 [node name="toggleHelpMenuButton" type="Button" parent="MenuButtons/PokerTokens/HBoxContainer"]
@@ -670,6 +647,11 @@ theme_override_fonts/font = SubResource("SystemFont_hwyq4")
 theme_override_font_sizes/font_size = 20
 text = "x"
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(880, 100)
+texture = SubResource("AtlasTexture_g1emw")
+
+[connection signal="toggled" from="MenuButtons/PokerTokens/HBoxContainer/SoundButton" to="MenuButtons" method="_on_sound_button_toggled"]
 [connection signal="pressed" from="MenuButtons/PokerTokens/HBoxContainer/toggleHelpMenuButton" to="MenuButtons" method="_on_toggle_help_menu_button_pressed"]
 [connection signal="pressed" from="MenuButtons/StartButton/HBoxContainer/StartButton" to="MenuButtons" method="_on_start_button_pressed"]
 [connection signal="pressed" from="MenuButtons/HelpMenuContainer/Exit/MarginContainer/toggleHelpMenuButton" to="MenuButtons" method="_on_toggle_help_menu_button_pressed"]
