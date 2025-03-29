@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://cdy5pu84by70j"]
+[gd_scene load_steps=63 format=3 uid="uid://cdy5pu84by70j"]
 
 [ext_resource type="Texture2D" uid="uid://dqtotwp2qym3h" path="res://assets/sprites/Stage.png" id="1_23u7x"]
 [ext_resource type="Texture2D" uid="uid://b82m4v3h8k453" path="res://assets/sprites/UI SpriteSheet.png" id="1_c8jvb"]
@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://ddqsftlxu0r8d" path="res://assets/sprites/Cheshire Mouth Vanish.png" id="5_p0x5x"]
 [ext_resource type="Texture2D" uid="uid://dm6vtv6juewgp" path="res://assets/sprites/Card Sprite Sheet.png" id="6_hwyq4"]
 [ext_resource type="Script" uid="uid://bis2354kugken" path="res://scripts/StartButton.gd" id="7_hwyq4"]
+[ext_resource type="Texture2D" uid="uid://s5ui77lvk788" path="res://assets/sprites/Relic Sprite Sheet.png" id="10_eoxii"]
+[ext_resource type="Texture2D" uid="uid://6p768xxlleia" path="res://assets/sprites/Character Portrait Sprites.png" id="11_nhl2i"]
+[ext_resource type="PackedScene" uid="uid://c4crmhkfhroy5" path="res://scenes/card.tscn" id="12_cpjw3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3yqpv"]
 atlas = ExtResource("3_k72ci")
@@ -366,6 +369,12 @@ subpixel_positioning = 0
 texture = ExtResource("6_hwyq4")
 region_rect = Rect2(288, 0, 72, 96)
 
+[sub_resource type="SystemFont" id="SystemFont_68m40"]
+font_names = PackedStringArray("PMingLiU-ExtB")
+
+[sub_resource type="SystemFont" id="SystemFont_k72ci"]
+font_names = PackedStringArray("PMingLiU-ExtB")
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hwyq4"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nhl2i"]
@@ -494,13 +503,13 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_cpjw3")
 script = ExtResource("7_hwyq4")
 
 [node name="HelpMenuContainer" type="MarginContainer" parent="MenuButtons"]
-visible = false
+custom_minimum_size = Vector2(925, 350)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="NinePatchRect" type="NinePatchRect" parent="MenuButtons/HelpMenuContainer"]
-custom_minimum_size = Vector2(300, 400)
+custom_minimum_size = Vector2(925, 400)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -511,19 +520,124 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
+[node name="RichTextLabel" type="RichTextLabel" parent="MenuButtons/HelpMenuContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = SubResource("SystemFont_68m40")
+theme_override_fonts/italics_font = SubResource("SystemFont_k72ci")
+theme_override_font_sizes/bold_italics_font_size = 18
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 18
+bbcode_enabled = true
+text = "[i] HOW TO PLAY [/i]
+[b] Match Setup:																										Health:[/b]
+  - Opponent: Face an enemy in every match.                      						    			 			 	  - Losing all hearts ends the game; a new match restores full health.               
+  - Deck: 10 random cards are drawn from the “pot.”
+[b] Card Drafting:[/b]																									[b]Objective:[/b]
+  - Alternating turns, both you and your opponent pick 5 cards.             									   - Remove all opponent hearts to win.
+[b] Battles:[/b] 																													 [b]Elementals Encounter:[/b]
+  - Your 5 cards and your opponent’s cards are shuffled and paired.											   - The hat mouth deals 10 random cards from the pot plus 10 elemental cards									.
+  - Higher face value wins; the victor deals 1 heart of damage.                 										- Swap 3 cards between the hat’s hand and the pot.
+[b] Relics:[/b]																         													  [b]Elemental Cards:[/b] 
+[i] [b] What they are: [/b]	[/i]																						     - The hat mouth deals 10 random cards from the pot plus 10 elemental cards
+  - Unique power-ups earned after winning matches. 																	 - Swap 3 cards between the hat’s hand and the pot.
+[i] [b] How to Get Them:[/b]	[/i] 																						[b]Elementals Logic:[/b]
+  - After 2 wins, choose one relic from 2 options. 															  			- Water beats Fire, Fire beats Grass, Grass beats Water.
+  - Additional relics are available after further wins, 															      [b] Boss Battles: [/b]
+    and duplicates may be offered.  																						    	-   Bosses have more health and special abilities.
+[i] [b] Impact: [/b]	[/i]																												[i] [b] Boss Rewards: [/b]	[/i]
+   - Collecting 3 relics unlocks new gameplay features and 														    - Victory grants either 3 extra hearts or an additional relic slot.
+"
+scroll_active = false
+autowrap_mode = 2
+context_menu_enabled = true
+
 [node name="HBoxContainer" type="HBoxContainer" parent="MenuButtons/HelpMenuContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="TextDisplay" type="Label" parent="MenuButtons/HelpMenuContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.0705882, 0.12549, 0.12549, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 8
-theme_override_fonts/font = SubResource("SystemFont_hwyq4")
-theme_override_font_sizes/font_size = 25
-text = " HOW TO PLAY:
-"
+[node name="HealthBar" type="Sprite2D" parent="MenuButtons/HelpMenuContainer/HBoxContainer"]
+position = Vector2(835, 64)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_c8jvb")
+region_enabled = true
+region_rect = Rect2(128, 0, 80, 32)
+
+[node name="RelicSpriteSheet3" type="Sprite2D" parent="MenuButtons/HelpMenuContainer/HBoxContainer/HealthBar"]
+texture = ExtResource("1_c8jvb")
+region_enabled = true
+region_rect = Rect2(128, 32, 80, 32)
+
+[node name="RelicSpriteSheet3" type="Sprite2D" parent="MenuButtons/HelpMenuContainer/HBoxContainer/HealthBar/RelicSpriteSheet3"]
+position = Vector2(-30.6666, -1)
+texture = ExtResource("1_c8jvb")
+region_enabled = true
+region_rect = Rect2(112, 64, 16, 16)
+
+[node name="RelicSpriteSheet4" type="Sprite2D" parent="MenuButtons/HelpMenuContainer/HBoxContainer"]
+position = Vector2(812, 115)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_c8jvb")
+region_enabled = true
+region_rect = Rect2(112, 80, 16, 16)
+
+[node name="RelicSpriteSheet5" type="Sprite2D" parent="MenuButtons/HelpMenuContainer/HBoxContainer"]
+position = Vector2(837, 115)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_c8jvb")
+region_enabled = true
+region_rect = Rect2(112, 80, 16, 16)
+
+[node name="RelicSpriteSheet6" type="Sprite2D" parent="MenuButtons/HelpMenuContainer/HBoxContainer"]
+position = Vector2(863, 115)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_c8jvb")
+region_enabled = true
+region_rect = Rect2(112, 80, 16, 16)
+
+[node name="Relics" type="Sprite2D" parent="MenuButtons/HelpMenuContainer/HBoxContainer"]
+position = Vector2(337, 310)
+texture = ExtResource("10_eoxii")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 160)
+
+[node name="Skely" type="Sprite2D" parent="MenuButtons/HelpMenuContainer/HBoxContainer"]
+position = Vector2(817, 288)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_nhl2i")
+region_enabled = true
+region_rect = Rect2(128, 128, 80, 80)
+
+[node name="Skely2" type="Sprite2D" parent="MenuButtons/HelpMenuContainer/HBoxContainer"]
+position = Vector2(862, 288)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_nhl2i")
+region_enabled = true
+region_rect = Rect2(240, 240, 80, 80)
+
+[node name="Skely3" type="Sprite2D" parent="MenuButtons/HelpMenuContainer/HBoxContainer"]
+position = Vector2(836, 243)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_nhl2i")
+region_enabled = true
+region_rect = Rect2(16, 352, 80, 80)
+
+[node name="Skely4" type="Sprite2D" parent="MenuButtons/HelpMenuContainer/HBoxContainer"]
+position = Vector2(817, 362)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_nhl2i")
+region_enabled = true
+region_rect = Rect2(16, 16, 80, 80)
+
+[node name="Skely5" type="Sprite2D" parent="MenuButtons/HelpMenuContainer/HBoxContainer"]
+position = Vector2(869, 362)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_nhl2i")
+region_enabled = true
+region_rect = Rect2(16, 464, 80, 80)
+
+[node name="Card" parent="MenuButtons/HelpMenuContainer/HBoxContainer" instance=ExtResource("12_cpjw3")]
+position = Vector2(355, 78)
 
 [node name="Exit" type="VBoxContainer" parent="MenuButtons/HelpMenuContainer"]
 layout_mode = 2
