@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cvxys4uhoddra"]
 
-[ext_resource type="Script" uid="uid://db1kbnbwnci6y" path="res://scripts/enemy.gd" id="1_48uxq"]
+[ext_resource type="Script" uid="uid://bodypg48adp5t" path="res://scripts/enemy.gd" id="1_48uxq"]
 [ext_resource type="PackedScene" uid="uid://cjk46ntwo035q" path="res://scenes/health_bar.tscn" id="2_md0e3"]
 [ext_resource type="Texture2D" uid="uid://b82m4v3h8k453" path="res://assets/sprites/UI SpriteSheet.png" id="3_4ra3w"]
 

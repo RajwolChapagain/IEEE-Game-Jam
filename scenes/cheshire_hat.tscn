@@ -1,6 +1,6 @@
 [gd_scene load_steps=34 format=3 uid="uid://bi2o10kvfnjln"]
 
-[ext_resource type="Script" uid="uid://trqqs7eie31s" path="res://scripts/cheshire_hat.gd" id="1_a4q6l"]
+[ext_resource type="Script" uid="uid://bxab5btp40i68" path="res://scripts/cheshire_hat.gd" id="1_a4q6l"]
 [ext_resource type="Texture2D" uid="uid://bf5usch3m1sxs" path="res://assets/sprites/Cheshire Mouth Close.png" id="2_u30v0"]
 [ext_resource type="Texture2D" uid="uid://vkqb2veev7du" path="res://assets/sprites/Cheshire Mouth Open.png" id="3_uawng"]
 [ext_resource type="Texture2D" uid="uid://ddqsftlxu0r8d" path="res://assets/sprites/Cheshire Mouth Vanish.png" id="4_pvowj"]

@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Cheshires Game.mp3-f4241e46160f3844611acbb8ae
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
