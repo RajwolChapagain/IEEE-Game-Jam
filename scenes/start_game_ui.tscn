@@ -4,11 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://b82m4v3h8k453" path="res://assets/sprites/UI SpriteSheet.png" id="1_c8jvb"]
 [ext_resource type="Texture2D" uid="uid://vkqb2veev7du" path="res://assets/sprites/Cheshire Mouth Open.png" id="3_gd1gc"]
 [ext_resource type="Texture2D" uid="uid://bf5usch3m1sxs" path="res://assets/sprites/Cheshire Mouth Close.png" id="3_k72ci"]
-[ext_resource type="Script" uid="uid://8lh0xn6n5i41" path="res://scripts/menu_buttons.gd" id="4_hwyq4"]
+[ext_resource type="Script" uid="uid://cicyo6l13a02x" path="res://scripts/menu_buttons.gd" id="4_hwyq4"]
 [ext_resource type="Texture2D" uid="uid://smpd4taj65t0" path="res://assets/sprites/Title.png" id="5_hwyq4"]
 [ext_resource type="Texture2D" uid="uid://ddqsftlxu0r8d" path="res://assets/sprites/Cheshire Mouth Vanish.png" id="5_p0x5x"]
 [ext_resource type="Texture2D" uid="uid://dm6vtv6juewgp" path="res://assets/sprites/Card Sprite Sheet.png" id="6_hwyq4"]
-[ext_resource type="Script" uid="uid://b5143g88vvvyo" path="res://scripts/StartButton.gd" id="7_hwyq4"]
+[ext_resource type="Script" uid="uid://bae47b0sv0bw2" path="res://scripts/StartButton.gd" id="7_hwyq4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3yqpv"]
 atlas = ExtResource("3_k72ci")
@@ -182,8 +182,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_68m40"]
-resource_name = "OpenMouth"
+[sub_resource type="Animation" id="Animation_p0x5x"]
+resource_name = "AppearMouth"
 step = 0.0666667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -195,7 +195,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"Open"]
+"values": [&"Vanish"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -207,7 +207,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
+"values": [7, 6, 5, 4, 3, 2, 1, 0]
 }
 
 [sub_resource type="Animation" id="Animation_k72ci"]
@@ -239,6 +239,34 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 6, 7]
 }
 
+[sub_resource type="Animation" id="Animation_68m40"]
+resource_name = "OpenMouth"
+step = 0.0666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cheshire:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Open"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cheshire:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
 [sub_resource type="Animation" id="Animation_eoxii"]
 length = 0.001
 tracks/0/type = "value"
@@ -264,34 +292,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_p0x5x"]
-resource_name = "AppearMouth"
-step = 0.0666667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Cheshire:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Vanish"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Cheshire:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [7, 6, 5, 4, 3, 2, 1, 0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nhl2i"]
