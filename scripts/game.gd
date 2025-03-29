@@ -11,21 +11,29 @@ var dealt_card: Array[Card] = []
 var player_turn: bool = false
 var deal_size: int = 10
 
+signal done_dealing
+
 func _ready():
+	done_dealing.connect(on_done_dealing)
 	start_game()
 
 func start_game():
 	deal()
+
+func on_done_dealing():
 	enemy_turn()
 
 func deal():
+	var tween_duration = 0.2
 	for i in range(0, deal_size):
 		dealt_card.append(deck.deck[i])
 		dealt_card[i].card_clicked.connect(_on_card_clicked)
 		dealt_card[i].face_up = true
 		var tween = create_tween()
-		tween.tween_property(dealt_card[i],"global_position",dealt_positions[i].global_position,0.2)
+		tween.tween_property(dealt_card[i],"global_position",dealt_positions[i].global_position,tween_duration)
 		dealt_card[i].update_card()
+	await round_timer(tween_duration)
+	done_dealing.emit()
 
 func enemy_turn():
 	if dealt_card.size() > 0:
@@ -62,7 +70,7 @@ func start_battle():
 	continue_game()
 
 func battle_round(player_card: Card, enemy_card: Card) -> int:
-	await round_timer()
+	await round_timer(1)
 	
 	player_card.face_up = true
 	player_card.update_card()
@@ -87,9 +95,9 @@ func battle_round(player_card: Card, enemy_card: Card) -> int:
 	else:
 		return BATTLE.CONTINUE
 
-func round_timer():
+func round_timer(wait_time: float):
 	var timer = Timer.new() 
-	timer.wait_time = 1
+	timer.wait_time = wait_time
 	timer.one_shot = true
 	timer.autostart = false
 	add_child(timer)

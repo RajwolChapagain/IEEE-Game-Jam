@@ -18,8 +18,10 @@ func shuffle_hand():
 
 func order_hand():
 	for i in range(0, hand.size()):
-		hand[i].global_position.y = global_position.y 
-		hand[i].global_position.x = global_position.x + i * 75
+		var tween = create_tween()
+		tween.tween_property(hand[i],"global_position:y",global_position.y,0.1)
+		tween.parallel()
+		tween.tween_property(hand[i],"global_position:x",global_position.x + i * 75,0.1)
 
 func clear():
 	hand.clear()
