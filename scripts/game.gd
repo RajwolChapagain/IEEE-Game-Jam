@@ -134,10 +134,12 @@ func _on_enemy_entity_died() -> void:
 	
 func end_battle(player_won: bool) -> void:
 	battle_ended = true
-	return_cards()
-	replenish_player_hp()
-	load_next_enemy()
-	start_game()
+	
+	if player_won:
+		return_cards()
+		replenish_player_hp()
+		load_next_enemy()
+		start_game()
 	
 func replenish_player_hp():
 	player.hp = player.initial_hp
