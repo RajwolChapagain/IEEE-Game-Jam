@@ -23,8 +23,8 @@ func close():
 	anim.play("CloseMouth")
 	await anim.animation_finished
 	cheshire_closed.emit()
-	visible = false
-	#queue_free()
+	#visible = false
+	queue_free()
 
 func splay_cards():
 	for i in range(0, len(deck.deck)):

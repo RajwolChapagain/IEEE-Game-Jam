@@ -18,7 +18,7 @@ var can_select_swappable = false
 var selected_cards = []
 var card_scene = preload("res://scenes/card.tscn")
 var relic_picker_scene = preload("res://scenes/relic_picker.tscn")
-
+var current
 
 func _ready():
 	load_enemy(enemy_index)
@@ -69,7 +69,8 @@ func do_battle() -> void:
 			return
 		await do_round(player.hand[i], enemy.hand[i])
 	
-	continue_game()
+	if not battle_ended:
+		continue_game()
 
 func do_round(player_card: Card, enemy_card: Card) -> void:
 	await start_timer(0.8)
@@ -225,6 +226,7 @@ func instantiate_cheshire():
 	add_child(cheshire)
 	
 func on_cheshire_closed():
+	print("Chesire has closed")
 	load_next_enemy()
 	start_game()
 
@@ -268,10 +270,11 @@ func on_swappable_card_clicked(card):
 		can_select_swappable = false
 		
 func swap_with_cheshire():
+
 	for card in selected_cards:
 		deck.deck.pop_at(get_card_index_in_deck(card))
 		card.queue_free()
-	
+		
 	for card in $CheshireHat.selected_cards:
 		var new_card = card_scene.instantiate()
 		new_card.rank = card.rank
