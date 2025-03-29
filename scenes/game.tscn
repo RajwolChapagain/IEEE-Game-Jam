@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://bj0kvsmlf76eo" path="res://scripts/game.gd" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://wxdbeasu565b" path="res://scenes/deck.tscn" id="2_lnu2h"]
-[ext_resource type="Script" uid="uid://b7kf83npbslqt" path="res://scripts/enemy_stats.gd" id="2_u5sy4"]
+[ext_resource type="Script" uid="uid://bsm5o485aikcf" path="res://scripts/enemy_stats.gd" id="2_u5sy4"]
 [ext_resource type="Resource" uid="uid://dj2nk4sfvv6ot" path="res://resources/skeleton_stats.tres" id="3_gee14"]
 [ext_resource type="PackedScene" uid="uid://cvi4s3ee8nuem" path="res://scenes/player.tscn" id="3_lbhrr"]
 [ext_resource type="Resource" uid="uid://cbm4w3h1sqk0t" path="res://resources/bat_stats.tres" id="4_gee14"]
 [ext_resource type="PackedScene" uid="uid://bm4p7oofa7lp0" path="res://scenes/table_stage.tscn" id="4_iywne"]
 [ext_resource type="PackedScene" uid="uid://cvxys4uhoddra" path="res://scenes/enemy.tscn" id="4_p57ef"]
-[ext_resource type="PackedScene" uid="uid://bxqoaurxld6rb" path="res://scenes/cheshire_hat.tscn" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://bi2o10kvfnjln" path="res://scenes/cheshire_hat.tscn" id="9_0tnpc"]
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("deck", "player", "enemy", "dealt_positions", "cheshire")]
 script = ExtResource("1_yqjtg")
