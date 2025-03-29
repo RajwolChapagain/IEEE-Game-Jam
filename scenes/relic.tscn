@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbivpuphg0tgy"]
+
+[ext_resource type="Script" uid="uid://jr6f2rx74rla" path="res://scripts/relic.gd" id="1_4ydfr"]
+
+[node name="Relic" type="Node"]
+script = ExtResource("1_4ydfr")

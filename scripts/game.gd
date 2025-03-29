@@ -49,6 +49,7 @@ func continue_game():
 	start_game()
 
 func start_battle():
+	apply_effects(player.hand, enemy.hand)
 	player.shuffle_hand()
 	enemy.shuffle_hand()
 
@@ -70,10 +71,11 @@ func do_round(player_card: Card, enemy_card: Card) -> void:
 	flip_card_up(player_card)
 	flip_card_up(enemy_card)
 	
-	compare_cards_and_do_damage(player_card, enemy_card)
+	compare_cards_and_do_damage(player_card.get_comparison_val(), enemy_card.get_comparison_val())
 	
-func compare_cards_and_do_damage(player_card, enemy_card):
-	var cmp = Calculator.compare(player_card, enemy_card)
+func compare_cards_and_do_damage(player_card_val, enemy_card_val):
+	print(player_card_val, " fought with ", enemy_card_val)
+	var cmp = Calculator.compare(player_card_val, enemy_card_val)
 	
 	if cmp == 1:
 		damage_entity(enemy)
@@ -148,10 +150,17 @@ func replenish_player_hp():
 func return_cards():
 	# Flips the hands down and empties the hands arrays
 	player.hand.all(flip_card_down)
-	player.hand.clear() 
 	enemy.hand.all(flip_card_down)
-	enemy.hand.clear()
 	
+	for card in player.hand:
+		card.applied_effects.clear()
+		card.hide_effects()
+	for card in enemy.hand:
+		card.applied_effects.clear()
+		card.hide_effects()
+	
+	enemy.hand.clear()
+	player.hand.clear()
 	# Returns all cards to the deck's position
 	deck.clear() 
 
@@ -162,3 +171,14 @@ func load_next_enemy():
 func load_enemy(index: int):
 	enemy.load_new_enemy(enemies[index])
 	
+func apply_effects(player_hand, enemy_hand):
+	for relic in player.relics:
+		Relic.add_effect(player_hand, enemy_hand, relic)
+	
+	stamp_cards(player_hand, enemy_hand)
+	
+func stamp_cards(hand, enemy_hand):
+	for card in hand:
+		card.display_effects()
+	for card in enemy_hand:
+		card.display_effects()

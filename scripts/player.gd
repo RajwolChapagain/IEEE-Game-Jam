@@ -5,6 +5,7 @@ class_name Player
 
 var hp: int = initial_hp
 var hand: Array[Card] = []
+@export var relics: Array[Relic.relic_type]
 
 signal entity_damaged
 signal entity_died

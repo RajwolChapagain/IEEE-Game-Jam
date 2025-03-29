@@ -1,7 +1,8 @@
-[gd_scene load_steps=42 format=3 uid="uid://c4crmhkfhroy5"]
+[gd_scene load_steps=54 format=3 uid="uid://c4crmhkfhroy5"]
 
 [ext_resource type="Script" uid="uid://bk0hmfhtu1udd" path="res://scripts/card.gd" id="1_6u4wf"]
 [ext_resource type="Texture2D" uid="uid://dm6vtv6juewgp" path="res://assets/sprites/Card Sprite Sheet.png" id="2_6u4wf"]
+[ext_resource type="Texture2D" uid="uid://s5ui77lvk788" path="res://assets/sprites/Relic Sprite Sheet.png" id="3_ktuci"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6u4wf"]
 atlas = ExtResource("2_6u4wf")
@@ -274,15 +275,94 @@ animations = [{
 atlas = ExtResource("2_6u4wf")
 region = Rect2(288, 0, 72, 96)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kg30u"]
+atlas = ExtResource("3_ktuci")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sy11y"]
+atlas = ExtResource("3_ktuci")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ligt"]
+atlas = ExtResource("3_ktuci")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8w5pg"]
+atlas = ExtResource("3_ktuci")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvopj"]
+atlas = ExtResource("3_ktuci")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1yd6c"]
+atlas = ExtResource("3_ktuci")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_we8pq"]
+atlas = ExtResource("3_ktuci")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wvaf"]
+atlas = ExtResource("3_ktuci")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8dfr"]
+atlas = ExtResource("3_ktuci")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpf3o"]
+atlas = ExtResource("3_ktuci")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_42b55"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kg30u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sy11y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ligt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8w5pg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvopj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1yd6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_we8pq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wvaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8dfr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpf3o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6u4wf"]
 size = Vector2(72, 96)
 
-[node name="Card" type="Area2D" node_paths=PackedStringArray("Rank_Sprite", "Suit_Sprite", "Type_Sprite", "Flip_Sprite")]
+[node name="Card" type="Area2D" node_paths=PackedStringArray("Rank_Sprite", "Suit_Sprite", "Type_Sprite", "Flip_Sprite", "Effects_Sprite_Array")]
 script = ExtResource("1_6u4wf")
 Rank_Sprite = NodePath("Rank")
 Suit_Sprite = NodePath("Suit")
 Type_Sprite = NodePath("Type")
 Flip_Sprite = NodePath("FlipSprite")
+Effects_Sprite_Array = [NodePath("EffectSprite"), NodePath("EffectSprite2"), NodePath("EffectSprite3"), NodePath("EffectSprite4"), NodePath("EffectSprite5")]
 
 [node name="Type" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_s4f1a")
@@ -297,6 +377,31 @@ sprite_frames = SubResource("SpriteFrames_khodh")
 [node name="FlipSprite" type="Sprite2D" parent="."]
 visible = false
 texture = SubResource("AtlasTexture_s4f1a")
+
+[node name="EffectSprite" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-14, -28)
+sprite_frames = SubResource("SpriteFrames_42b55")
+
+[node name="EffectSprite2" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(7, -12)
+sprite_frames = SubResource("SpriteFrames_42b55")
+
+[node name="EffectSprite3" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(19, 7)
+sprite_frames = SubResource("SpriteFrames_42b55")
+
+[node name="EffectSprite4" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-22, 11)
+sprite_frames = SubResource("SpriteFrames_42b55")
+
+[node name="EffectSprite5" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(4, 34)
+sprite_frames = SubResource("SpriteFrames_42b55")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_6u4wf")
