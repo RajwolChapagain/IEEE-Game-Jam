@@ -10,7 +10,7 @@ enum BATTLE {LOSS, WIN, CONTINUE}
 var dealt_card: Array[Card] = []
 var player_turn: bool = false
 var deal_size: int = 10
-
+var battle_ended: bool = false
 
 func _ready():
 	start_game()
@@ -40,55 +40,51 @@ func enemy_turn():
 	else:
 		start_battle()
 
-
 func continue_game():
 	clear_game()
 	start_game()
 
 func start_battle():
 	player.shuffle_hand()
-	player.order_hand()
 	enemy.shuffle_hand()
-	enemy.order_hand()
+
+	do_battle()
 	
-	for i in range(0, int(deal_size/2)):
-		var battle_result = await battle_round(player.hand[i], enemy.hand[i])
-		if battle_result == BATTLE.WIN:
-			print("PLAYER WINS")
-			return BATTLE.WIN
-		elif battle_result == BATTLE.LOSS:
-			print("PLAYER DIED")
-			return BATTLE.LOSS
-		else:
-			pass
+func do_battle() -> void:
+	var hand_size: int = deal_size / 2
+	
+	for i in range(0, hand_size):
+		await do_round(player.hand[i], enemy.hand[i])
+		if battle_ended:
+			return
 	
 	continue_game()
 
-func battle_round(player_card: Card, enemy_card: Card) -> int:
-	await start_timer(1)
+func do_round(player_card: Card, enemy_card: Card) -> void:
+	await start_timer(0.8)
 	
-	player_card.face_up = true
-	player_card.update_card()
-	enemy_card.face_up = true
-	enemy_card.update_card()
+	flip_card_up(player_card)
+	flip_card_up(enemy_card)
 	
+	compare_cards_and_do_damage(player_card, enemy_card)
+	
+func compare_cards_and_do_damage(player_card, enemy_card):
 	var cmp = Calculator.compare(player_card, enemy_card)
-	if cmp > 0:
-		enemy.hp-=1
-		print("player wins round")
-	elif cmp < 0:
-		player.hp-=1
-		print("enemy wins round")
+	
+	if cmp == 1:
+		damage_entity(enemy)
+	elif cmp == -1:
+		damage_entity(player)
 	else:
-		print("draw round")
+		# Draw
 		pass
-		
-	if player.hp <= 0:
-		return BATTLE.LOSS
-	elif enemy.hp <= 0:
-		return BATTLE.WIN
-	else:
-		return BATTLE.CONTINUE
+
+func damage_entity(entity: Player) -> void:
+	entity.take_damage(1)
+
+func flip_card_up(card: Card) -> void:
+	card.face_up = true
+	card.update_card()
 
 func start_timer(wait_time: float):
 	var timer = Timer.new() 
@@ -120,4 +116,14 @@ func remove_from_dealt(card):
 		if str(dealt_card[i]) == str(card):
 			dealt_card.pop_at(i)
 			return
-			
+
+func _on_player_entity_died() -> void:
+	end_battle(false)
+	print("Player lost!")
+
+func _on_enemy_entity_died() -> void:
+	end_battle(true)
+	print("Player won!")
+	
+func end_battle(player_won: bool) -> void:
+	battle_ended = true

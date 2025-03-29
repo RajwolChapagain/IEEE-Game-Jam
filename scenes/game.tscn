@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bj0kvsmlf76eo" path="res://scripts/game.gd" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://wxdbeasu565b" path="res://scenes/deck.tscn" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://cvi4s3ee8nuem" path="res://scenes/player.tscn" id="3_lbhrr"]
-[ext_resource type="PackedScene" uid="uid://c5s3kmeadug3y" path="res://scenes/table_stage.tscn" id="4_iywne"]
+[ext_resource type="PackedScene" uid="uid://bm4p7oofa7lp0" path="res://scenes/table_stage.tscn" id="4_iywne"]
 [ext_resource type="PackedScene" uid="uid://c4tq7hhoe4lcq" path="res://scenes/enemy.tscn" id="4_p57ef"]
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("deck", "player", "enemy", "dealt_positions")]
@@ -56,3 +56,6 @@ position = Vector2(675, 270)
 
 [node name="CardPosition10" type="Marker2D" parent="CardPositions"]
 position = Vector2(750, 270)
+
+[connection signal="entity_died" from="Player" to="." method="_on_player_entity_died"]
+[connection signal="entity_died" from="Enemy" to="." method="_on_enemy_entity_died"]
