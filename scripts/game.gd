@@ -23,7 +23,8 @@ func deal():
 		dealt_card.append(deck.deck[i])
 		dealt_card[i].card_clicked.connect(_on_card_clicked)
 		dealt_card[i].face_up = true
-		dealt_card[i].global_position = dealt_positions[i].global_position
+		var tween = create_tween()
+		tween.tween_property(dealt_card[i],"global_position",dealt_positions[i].global_position,0.2)
 		dealt_card[i].update_card()
 
 func enemy_turn():
