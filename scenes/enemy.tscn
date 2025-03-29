@@ -1,6 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvxys4uhoddra"]
+[gd_scene load_steps=10 format=3 uid="uid://cvxys4uhoddra"]
 
 [ext_resource type="Script" uid="uid://db1kbnbwnci6y" path="res://scripts/enemy.gd" id="1_48uxq"]
+[ext_resource type="PackedScene" uid="uid://cjk46ntwo035q" path="res://scenes/health_bar.tscn" id="2_md0e3"]
+[ext_resource type="Texture2D" uid="uid://b82m4v3h8k453" path="res://assets/sprites/UI SpriteSheet.png" id="3_4ra3w"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_md0e3"]
+load_path = "res://.godot/imported/UI SpriteSheet.png-9325b70e19d1bf70bf5b1890ce71fb93.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ra3w"]
+atlas = SubResource("CompressedTexture2D_md0e3")
+region = Rect2(128, 64, 80, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4w8v"]
+atlas = ExtResource("3_4ra3w")
+region = Rect2(144, 96, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwavj"]
+atlas = SubResource("AtlasTexture_c4w8v")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4ra3w"]
+load_path = "res://.godot/imported/UI SpriteSheet.png-9325b70e19d1bf70bf5b1890ce71fb93.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uy6h"]
+atlas = SubResource("CompressedTexture2D_4ra3w")
+region = Rect2(112, 80, 16, 16)
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_48uxq")
+
+[node name="HealthBar" parent="." instance=ExtResource("2_md0e3")]
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 100.0
+offset_bottom = 50.0
+texture_under = SubResource("AtlasTexture_4ra3w")
+texture_progress = SubResource("AtlasTexture_xwavj")
+texture_progress_offset = Vector2(16, 0)
+
+[node name="Heart" parent="HealthBar" index="0"]
+texture = SubResource("AtlasTexture_5uy6h")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(440, 100)
+
+[editable path="HealthBar"]

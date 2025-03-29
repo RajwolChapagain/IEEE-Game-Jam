@@ -35,5 +35,6 @@ func shuffle_deck():
 	deck.shuffle()
 
 func clear():
-	for card in deck:
-		card.global_position = global_position
+	for i in range(0, len(deck)):
+		deck[i].global_position = global_position
+		deck[i].applied_effects.clear()

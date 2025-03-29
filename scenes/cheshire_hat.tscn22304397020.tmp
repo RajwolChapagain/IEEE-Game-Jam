@@ -326,31 +326,31 @@ deck_size = 10
 [node name="CardPositions" type="Node2D" parent="."]
 
 [node name="CardPosition1" type="Marker2D" parent="CardPositions"]
-position = Vector2(75, 444)
+position = Vector2(75, 170)
 
 [node name="CardPosition2" type="Marker2D" parent="CardPositions"]
-position = Vector2(150, 444)
+position = Vector2(150, 170)
 
 [node name="CardPosition3" type="Marker2D" parent="CardPositions"]
-position = Vector2(225, 444)
+position = Vector2(225, 170)
 
 [node name="CardPosition4" type="Marker2D" parent="CardPositions"]
-position = Vector2(300, 444)
+position = Vector2(300, 170)
 
 [node name="CardPosition5" type="Marker2D" parent="CardPositions"]
-position = Vector2(375, 444)
+position = Vector2(375, 170)
 
 [node name="CardPosition6" type="Marker2D" parent="CardPositions"]
-position = Vector2(450, 444)
+position = Vector2(450, 170)
 
 [node name="CardPosition7" type="Marker2D" parent="CardPositions"]
-position = Vector2(525, 444)
+position = Vector2(525, 170)
 
 [node name="CardPosition8" type="Marker2D" parent="CardPositions"]
-position = Vector2(600, 444)
+position = Vector2(600, 170)
 
 [node name="CardPosition9" type="Marker2D" parent="CardPositions"]
-position = Vector2(675, 444)
+position = Vector2(675, 170)
 
 [node name="CardPosition10" type="Marker2D" parent="CardPositions"]
-position = Vector2(750, 444)
+position = Vector2(750, 170)

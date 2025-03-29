@@ -1,6 +1,8 @@
 extends MarginContainer
 @export var help_menu_screen: MarginContainer
 
+var started = false
+
 func toggle_visibility(object):
 	if object.visible:
 		object.visible = false
@@ -16,6 +18,9 @@ func _on_toggle_help_menu_button_pressed() -> void:
 
 
 func _on_start_button_pressed() -> void:
+	if started:
+		return
+	started = true
 	$"../Cheshire/CheshireAnimationPlayer".play("OpenMouth")
 	await $"../Cheshire/CheshireAnimationPlayer".animation_finished
 	var cardTween = create_tween()

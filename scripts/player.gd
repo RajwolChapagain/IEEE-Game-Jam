@@ -24,15 +24,16 @@ func shuffle_hand():
 func order_hand():
 	for i in range(0, hand.size()):
 		var tween = create_tween()
-		tween.tween_property(hand[i],"global_position:y",global_position.y,0.1)
+		tween.tween_property(hand[i],"global_position:y",$Marker2D.global_position.y,0.1)
 		tween.parallel()
-		tween.tween_property(hand[i],"global_position:x",global_position.x + i * 75,0.1)
+		tween.tween_property(hand[i],"global_position:x",$Marker2D.global_position.x + i * 75,0.1)
 
 func clear():
 	hand.clear()
 
 func take_damage(damage):
 	hp -= damage
+	$HealthBar.decrement_HP()
 	entity_damaged.emit()
 	if hp <= 0:
 		entity_died.emit()
