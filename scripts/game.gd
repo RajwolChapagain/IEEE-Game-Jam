@@ -10,9 +10,12 @@ var player_turn: bool = false
 var deal_size: int = 10
 
 func _ready():
+	start_game()
+
+func start_game():
 	deal()
-	enemy_pick()
-	
+	enemy_turn()
+
 func deal():
 	for i in range(0, deal_size):
 		dealt_card.append(deck.deck[i])
@@ -21,7 +24,7 @@ func deal():
 		dealt_card[i].global_position = dealt_positions[i].global_position
 		dealt_card[i].update_card()
 
-func enemy_pick():
+func enemy_turn():
 	if dealt_card.size() > 0:
 		var index: int = randi_range(0, dealt_card.size()-1)
 		dealt_card[index].card_clicked.disconnect(_on_card_clicked)
@@ -35,8 +38,7 @@ func enemy_pick():
 
 func continue_game():
 	clear_game()
-	deal()
-	enemy_pick()
+	start_game()
 
 func start_battle() -> int:
 	var timer = Timer.new() 
@@ -44,10 +46,12 @@ func start_battle() -> int:
 	timer.one_shot = false
 	timer.autostart = false
 	add_child(timer)
+	
 	player.shuffle_hand()
 	player.order_hand()
 	enemy.shuffle_hand()
 	enemy.order_hand()
+	
 	for i in range(0, int(deal_size/2)):
 		timer.start()
 		await timer.timeout
@@ -56,6 +60,7 @@ func start_battle() -> int:
 		player.hand[i].update_card()
 		enemy.hand[i].face_up = true
 		enemy.hand[i].update_card()
+		
 		var cmp = Calculator.compare(player.hand[i], enemy.hand[i])
 		if cmp > 0:
 			enemy.hp-=1
@@ -92,7 +97,7 @@ func _on_card_clicked(card: Card):
 		player.pick(card)
 		remove_from_dealt(card)
 		player_turn = not player_turn
-		enemy_pick()
+		enemy_turn()
 
 func remove_from_dealt(card):
 	for i in range(0, dealt_card.size()):
