@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cdfadovpcpjkx"
+path="res://.godot/imported/Cheshires Game.mp3-f4241e46160f3844611acbb8aeb895cf.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Cheshires Game.mp3"
+dest_files=["res://.godot/imported/Cheshires Game.mp3-f4241e46160f3844611acbb8aeb895cf.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
