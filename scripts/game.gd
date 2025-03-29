@@ -6,6 +6,7 @@ extends Node2D
 @export var dealt_positions: Array[Marker2D]
 @export var enemies: Array[EnemyStats]
 @export var enemy_index = 0
+@export var cheshire: Cheshire
 
 enum BATTLE {LOSS, WIN, CONTINUE}
 
@@ -140,7 +141,7 @@ func end_battle(player_won: bool) -> void:
 		replenish_player_hp()
 		load_next_enemy()
 		start_game()
-	
+		
 func replenish_player_hp():
 	player.hp = player.initial_hp
 	
@@ -153,7 +154,7 @@ func return_cards():
 	
 	# Returns all cards to the deck's position
 	deck.clear() 
-	
+
 func load_next_enemy():
 	enemy_index += 1
 	load_enemy(enemy_index)
