@@ -86,6 +86,10 @@ func flip_card_up(card: Card) -> void:
 	card.face_up = true
 	card.update_card()
 
+func flip_card_down(card: Card) -> void:
+	card.face_up = false
+	card.update_card()
+	
 func start_timer(wait_time: float):
 	var timer = Timer.new() 
 	timer.wait_time = wait_time
@@ -130,8 +134,10 @@ func end_battle(player_won: bool) -> void:
 	return_cards()
 
 func return_cards():
-	# Empties the player hand array
+	# Flips the hands down and empties the hands arrays
+	player.hand.all(flip_card_down)
 	player.hand.clear() 
+	enemy.hand.all(flip_card_down)
 	enemy.hand.clear()
 	
 	# Returns all cards to the deck's position
