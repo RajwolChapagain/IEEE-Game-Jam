@@ -4,6 +4,8 @@ extends Node2D
 @export var player: Player
 @export var enemy: Player
 @export var dealt_positions: Array[Marker2D]
+@export var enemies: Array[EnemyStats]
+@export var enemy_index = 0
 
 enum BATTLE {LOSS, WIN, CONTINUE}
 
@@ -13,6 +15,7 @@ var deal_size: int = 10
 var battle_ended: bool = false
 
 func _ready():
+	load_enemy(enemy_index)
 	start_game()
 
 func start_game():
@@ -132,7 +135,9 @@ func _on_enemy_entity_died() -> void:
 func end_battle(player_won: bool) -> void:
 	battle_ended = true
 	return_cards()
-
+	load_next_enemy()
+	start_game()
+	
 func return_cards():
 	# Flips the hands down and empties the hands arrays
 	player.hand.all(flip_card_down)
@@ -142,4 +147,11 @@ func return_cards():
 	
 	# Returns all cards to the deck's position
 	deck.clear() 
+	
+func load_next_enemy():
+	enemy_index += 1
+	load_enemy(enemy_index)
+
+func load_enemy(index: int):
+	enemy.load_new_enemy(enemies[index])
 	
