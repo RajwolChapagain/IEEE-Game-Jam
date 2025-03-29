@@ -18,6 +18,7 @@ var can_select_swappable = false
 var selected_cards = []
 var card_scene = preload("res://scenes/card.tscn")
 var relic_picker_scene = preload("res://scenes/relic_picker.tscn")
+var game_over_scene = load("res://scenes/game_over.tscn")
 var current
 
 func _ready():
@@ -144,12 +145,15 @@ func _on_enemy_entity_died() -> void:
 	
 func end_battle(player_won: bool) -> void:
 	battle_ended = true
-	
+	if enemy_index == 2:
+		var game_over = game_over_scene.instantiate()
+		get_tree().root.add_child(game_over)
+		get_tree().paused = true
 	if player_won:
 		return_cards()
 		replenish_player_hp()
 		pick_relic()
-		if enemy_index >= 0:
+		if enemy_index > 0:
 			instantiate_cheshire()
 			deal_swappable_cards()
 		else:
