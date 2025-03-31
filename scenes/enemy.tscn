@@ -1,6 +1,40 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvxys4uhoddra"]
+[gd_scene load_steps=8 format=3 uid="uid://cvxys4uhoddra"]
 
-[ext_resource type="Script" uid="uid://db1kbnbwnci6y" path="res://scripts/enemy.gd" id="1_48uxq"]
+[ext_resource type="Script" uid="uid://cnppiad4p08ny" path="res://scripts/enemy.gd" id="1_48uxq"]
+[ext_resource type="Texture2D" uid="uid://b82m4v3h8k453" path="res://assets/sprites/UI SpriteSheet.png" id="2_md0e3"]
+[ext_resource type="Script" uid="uid://by86pw3r2wya8" path="res://scripts/health_bar.gd" id="3_4ra3w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3kqx"]
+atlas = ExtResource("2_md0e3")
+region = Rect2(128, 0, 80, 32)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6opq1"]
+load_path = "res://.godot/imported/UI SpriteSheet.png-9325b70e19d1bf70bf5b1890ce71fb93.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tujlf"]
+atlas = SubResource("CompressedTexture2D_6opq1")
+region = Rect2(144, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bvlm"]
+atlas = ExtResource("2_md0e3")
+region = Rect2(112, 64, 16, 16)
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_48uxq")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_right = 80.0
+offset_bottom = 40.0
+max_value = 5.0
+value = 5.0
+texture_under = SubResource("AtlasTexture_y3kqx")
+texture_progress = SubResource("AtlasTexture_tujlf")
+texture_progress_offset = Vector2(16, 0)
+script = ExtResource("3_4ra3w")
+
+[node name="Heart" type="Sprite2D" parent="HealthBar"]
+position = Vector2(8, 15)
+texture = SubResource("AtlasTexture_1bvlm")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(500, 100)

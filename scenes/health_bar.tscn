@@ -1,6 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cb7csd3slvn62"]
 
 [ext_resource type="Texture2D" uid="uid://b82m4v3h8k453" path="res://assets/sprites/UI SpriteSheet.png" id="1_1bvlm"]
+[ext_resource type="Script" uid="uid://by86pw3r2wya8" path="res://scripts/health_bar.gd" id="2_y3kqx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y3kqx"]
 atlas = ExtResource("1_1bvlm")
@@ -11,15 +12,7 @@ load_path = "res://.godot/imported/UI SpriteSheet.png-9325b70e19d1bf70bf5b1890ce
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tujlf"]
 atlas = SubResource("CompressedTexture2D_6opq1")
-region = Rect2(147, 32, 58, 32)
-
-[sub_resource type="GDScript" id="GDScript_1bvlm"]
-script/source = "extends TextureProgressBar
-
-
-func decrease_HP():
-	value-=1;
-"
+region = Rect2(144, 32, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1bvlm"]
 atlas = ExtResource("1_1bvlm")
@@ -32,8 +25,8 @@ max_value = 5.0
 value = 5.0
 texture_under = SubResource("AtlasTexture_y3kqx")
 texture_progress = SubResource("AtlasTexture_tujlf")
-texture_progress_offset = Vector2(19, 0)
-script = SubResource("GDScript_1bvlm")
+texture_progress_offset = Vector2(16, 0)
+script = ExtResource("2_y3kqx")
 
 [node name="Heart" type="Sprite2D" parent="."]
 position = Vector2(8, 15)

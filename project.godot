@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="IEEE Game Jam Project"
-run/main_scene="uid://cdy5pu84by70j"
+run/main_scene="uid://dap0b4gkslxg5"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

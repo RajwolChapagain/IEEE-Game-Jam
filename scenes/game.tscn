@@ -1,14 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://d280r3fbfrjqv"]
+[gd_scene load_steps=11 format=3 uid="uid://d280r3fbfrjqv"]
 
 [ext_resource type="Script" uid="uid://bj0kvsmlf76eo" path="res://scripts/game.gd" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://wxdbeasu565b" path="res://scenes/deck.tscn" id="2_lnu2h"]
-[ext_resource type="Script" uid="uid://bsm5o485aikcf" path="res://scripts/enemy_stats.gd" id="2_u5sy4"]
+[ext_resource type="Script" uid="uid://cukskctw4n6s0" path="res://scripts/enemy_stats.gd" id="2_u5sy4"]
 [ext_resource type="Resource" uid="uid://dj2nk4sfvv6ot" path="res://resources/skeleton_stats.tres" id="3_gee14"]
 [ext_resource type="PackedScene" uid="uid://cvi4s3ee8nuem" path="res://scenes/player.tscn" id="3_lbhrr"]
 [ext_resource type="Resource" uid="uid://cbm4w3h1sqk0t" path="res://resources/bat_stats.tres" id="4_gee14"]
 [ext_resource type="PackedScene" uid="uid://bm4p7oofa7lp0" path="res://scenes/table_stage.tscn" id="4_iywne"]
 [ext_resource type="PackedScene" uid="uid://cvxys4uhoddra" path="res://scenes/enemy.tscn" id="4_p57ef"]
 [ext_resource type="Resource" uid="uid://b7gbhlwp35iwp" path="res://resources/ghost_stats.tres" id="5_vtaks"]
+[ext_resource type="PackedScene" uid="uid://bi2o10kvfnjln" path="res://scenes/cheshire_hat.tscn" id="6_vtaks"]
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("deck", "player", "enemy", "dealt_positions")]
 script = ExtResource("1_yqjtg")
@@ -17,15 +18,14 @@ player = NodePath("Player")
 enemy = NodePath("Enemy")
 dealt_positions = [NodePath("CardPositions/CardPosition1"), NodePath("CardPositions/CardPosition2"), NodePath("CardPositions/CardPosition3"), NodePath("CardPositions/CardPosition4"), NodePath("CardPositions/CardPosition5"), NodePath("CardPositions/CardPosition6"), NodePath("CardPositions/CardPosition7"), NodePath("CardPositions/CardPosition8"), NodePath("CardPositions/CardPosition9"), NodePath("CardPositions/CardPosition10")]
 enemies = Array[ExtResource("2_u5sy4")]([ExtResource("3_gee14"), ExtResource("4_gee14"), ExtResource("5_vtaks")])
+cheshire_scene = ExtResource("6_vtaks")
 
 [node name="Deck" parent="." instance=ExtResource("2_lnu2h")]
 position = Vector2(880, 100)
 
 [node name="Player" parent="." instance=ExtResource("3_lbhrr")]
-position = Vector2(100, 400)
 
 [node name="Enemy" parent="." instance=ExtResource("4_p57ef")]
-position = Vector2(440, 100)
 
 [node name="TableStage" parent="." instance=ExtResource("4_iywne")]
 z_index = -1

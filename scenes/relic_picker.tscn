@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://b4u6s6ja1huqj"]
 
-[ext_resource type="Script" uid="uid://myrnq6pylr0w" path="res://scripts/relic_picker.gd" id="1_sy7jv"]
+[ext_resource type="Script" uid="uid://cj1eb5oq4hdqg" path="res://scripts/relic_picker.gd" id="1_sy7jv"]
 [ext_resource type="Texture2D" uid="uid://s5ui77lvk788" path="res://assets/sprites/Relic Sprite Sheet.png" id="2_u2j5a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ulyoy"]
