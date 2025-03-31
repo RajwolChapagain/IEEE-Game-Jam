@@ -20,9 +20,11 @@ atlas = ExtResource("2_md0e3")
 region = Rect2(112, 64, 16, 16)
 
 [node name="Enemy" type="Node2D"]
+position = Vector2(75, 150)
 script = ExtResource("1_48uxq")
 
 [node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_top = 8.0
 offset_right = 80.0
 offset_bottom = 40.0
 max_value = 5.0
@@ -37,4 +39,4 @@ position = Vector2(8, 15)
 texture = SubResource("AtlasTexture_1bvlm")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(500, 100)
+position = Vector2(350, -50)

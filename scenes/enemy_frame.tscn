@@ -103,5 +103,6 @@ animations = [{
 }]
 
 [node name="EnemyFrame" type="AnimatedSprite2D"]
+position = Vector2(100, 100)
 sprite_frames = SubResource("SpriteFrames_bilhx")
 script = ExtResource("2_oo8b1")

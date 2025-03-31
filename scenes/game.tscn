@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d280r3fbfrjqv"]
+[gd_scene load_steps=12 format=3 uid="uid://d280r3fbfrjqv"]
 
 [ext_resource type="Script" uid="uid://bj0kvsmlf76eo" path="res://scripts/game.gd" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://wxdbeasu565b" path="res://scenes/deck.tscn" id="2_lnu2h"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cvxys4uhoddra" path="res://scenes/enemy.tscn" id="4_p57ef"]
 [ext_resource type="Resource" uid="uid://b7gbhlwp35iwp" path="res://resources/ghost_stats.tres" id="5_vtaks"]
 [ext_resource type="PackedScene" uid="uid://bi2o10kvfnjln" path="res://scenes/cheshire_hat.tscn" id="6_vtaks"]
+[ext_resource type="PackedScene" uid="uid://bmxmb11xrj0h3" path="res://scenes/enemy_frame.tscn" id="11_kvpfn"]
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("deck", "player", "enemy", "dealt_positions")]
 script = ExtResource("1_yqjtg")
@@ -29,6 +30,8 @@ position = Vector2(880, 100)
 
 [node name="TableStage" parent="." instance=ExtResource("4_iywne")]
 z_index = -1
+
+[node name="EnemyFrame" parent="." instance=ExtResource("11_kvpfn")]
 
 [node name="CardPositions" type="Node2D" parent="."]
 

@@ -478,6 +478,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_cpjw3")
 script = ExtResource("7_hwyq4")
 
 [node name="HelpMenuContainer" type="MarginContainer" parent="MenuButtons"]
+visible = false
 custom_minimum_size = Vector2(925, 350)
 layout_mode = 2
 size_flags_horizontal = 4
