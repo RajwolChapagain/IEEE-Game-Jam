@@ -1,42 +1,24 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvi4s3ee8nuem"]
+[gd_scene load_steps=5 format=3 uid="uid://cvi4s3ee8nuem"]
 
-[ext_resource type="Script" uid="uid://c3avpxiqqs3rc" path="res://scripts/player.gd" id="1_3vyb7"]
-[ext_resource type="Texture2D" uid="uid://b82m4v3h8k453" path="res://assets/sprites/UI SpriteSheet.png" id="2_qhqgy"]
-[ext_resource type="Script" uid="uid://by86pw3r2wya8" path="res://scripts/health_bar.gd" id="3_qhqgy"]
+[ext_resource type="Script" uid="uid://b2dcobqe2gubg" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="PackedScene" uid="uid://cb7csd3slvn62" path="res://scenes/health_bar.tscn" id="2_g2els"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y3kqx"]
-atlas = ExtResource("2_qhqgy")
-region = Rect2(128, 0, 80, 32)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6opq1"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g2els"]
 load_path = "res://.godot/imported/UI SpriteSheet.png-9325b70e19d1bf70bf5b1890ce71fb93.ctex"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tujlf"]
-atlas = SubResource("CompressedTexture2D_6opq1")
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
+atlas = SubResource("CompressedTexture2D_g2els")
 region = Rect2(144, 32, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1bvlm"]
-atlas = ExtResource("2_qhqgy")
-region = Rect2(112, 64, 16, 16)
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_3vyb7")
 
-[node name="HealthBar" type="TextureProgressBar" parent="."]
-offset_left = 860.0
-offset_top = 490.0
-offset_right = 940.0
-offset_bottom = 530.0
-max_value = 5.0
-value = 5.0
-texture_under = SubResource("AtlasTexture_y3kqx")
-texture_progress = SubResource("AtlasTexture_tujlf")
-texture_progress_offset = Vector2(16, 0)
-script = ExtResource("3_qhqgy")
-
-[node name="Heart" type="Sprite2D" parent="HealthBar"]
-position = Vector2(8, 15)
-texture = SubResource("AtlasTexture_1bvlm")
-
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(100, 400)
+
+[node name="HealthBar" parent="." instance=ExtResource("2_g2els")]
+offset_left = 782.0
+offset_top = 457.0
+offset_right = 862.0
+offset_bottom = 497.0
+texture_progress = SubResource("AtlasTexture_qhqgy")
